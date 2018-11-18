@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rrhh;
+package Entidad;
 
 /**
  *
- * @author Nicolas
+ * @author USUARIO
  */
-public class RRhh {
-
-    public static void main(String[] args) {
-    }
+public class CargoEntidad {
+    private String carreraOptima;
+    private String carrerasAfines;
+    private int sueldo;
     
 }
