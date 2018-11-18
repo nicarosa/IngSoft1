@@ -10,8 +10,45 @@ package Entidad;
  * @author USUARIO
  */
 public class CargoEntidad {
+    private String nombre;
     private String carreraOptima;
     private String carrerasAfines;
     private int sueldo;
+
+    public CargoEntidad() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCarreraOptima() {
+        return carreraOptima;
+    }
+
+    public void setCarreraOptima(String carreraOptima) {
+        this.carreraOptima = carreraOptima;
+    }
+
+    public String getCarrerasAfines() {
+        return carrerasAfines;
+    }
+
+    public void setCarrerasAfines(String carrerasAfines) {
+        this.carrerasAfines = carrerasAfines;
+    }
+
+    public int getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(int sueldo) {
+        this.sueldo = sueldo;
+    }
+    
     
 }
