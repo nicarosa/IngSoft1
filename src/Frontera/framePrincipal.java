@@ -5,6 +5,9 @@
  */
 package Frontera;
 
+import Entidad.EmpleadoEntidad;
+import Entidad.ListaEmpleados;
+
 /**
  *
  * @author Nicolas
@@ -166,6 +169,62 @@ public class framePrincipal extends javax.swing.JFrame {
             }
         });
     }
+    public void inicializar(){
+       
+ 
+    EmpleadoEntidad uno=new EmpleadoEntidad();
+    EmpleadoEntidad dos=new EmpleadoEntidad();
+    EmpleadoEntidad tres=new EmpleadoEntidad();
+    EmpleadoEntidad cuatro=new EmpleadoEntidad();
+    EmpleadoEntidad cinco=new EmpleadoEntidad();
+    
+    
+        uno.setARL("1020");
+        uno.setActivo(true);
+        uno.setApellido("CHAVES");
+        uno.setCesantias(23);
+        uno.setContactoDeEmergencia(305612321);
+        uno.setDireccion("Avenida calle 22#15-69");
+        uno.setEPS("SaludCoop");
+        uno.setEdad(21);
+        uno.setId("1030685411");
+        uno.setNombre("ANDRES");
+        uno.setPensiones(900000);
+        
+        dos.setARL("1030");
+        dos.setActivo(true);
+        dos.setApellido("CASTAÑEDA");
+        dos.setCesantias(24);
+        dos.setContactoDeEmergencia(306798545);
+        dos.setDireccion("AVENIDA LAS FERIAS#70-05");
+        dos.setEPS("SALUDTOTAL");
+        dos.setEdad(19);
+        dos.setId("1019146963");
+        dos.setNombre("SEBASTIAN");
+        dos.setPensiones(900000);
+        
+        tres.setARL("1040");
+        tres.setActivo(true);
+        tres.setApellido("CARO");
+        tres.setCesantias(25);
+        tres.setContactoDeEmergencia(10232131);
+        tres.setDireccion("AV.PRIMERADEMAYO#70-22");
+        tres.setEPS("VIVASALUD");
+        tres.setEdad(25);
+        tres.setId("1013647467");
+        tres.setNombre("NICOLAS");
+        tres.setPensiones(1200000);
+        
+        ListaEmpleados lista=new ListaEmpleados();
+        lista.AñadirEmpleado(uno);
+        lista.AñadirEmpleado(dos);
+        lista.AñadirEmpleado(tres);
+        
+    }
+    
+
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton contratacionB;

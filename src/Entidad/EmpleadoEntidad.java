@@ -12,12 +12,14 @@ package Entidad;
 public class EmpleadoEntidad extends PersonaEntidad{
     private String ARL;
     private String EPS;
+    private CargoEntidad cargo;
     private int pensiones;
     private int cesantias;
     private int contactoDeEmergencia;
     private String direccion;
-    private boolean activo;
-    private int vacaciones; //en dias     
+    private boolean activo;     
+    private novedadEntidad novedades;
+
 
     public EmpleadoEntidad() {
     }
@@ -78,13 +80,6 @@ public class EmpleadoEntidad extends PersonaEntidad{
         this.activo = activo;
     }
 
-    public int getVacaciones() {
-        return vacaciones;
-    }
-
-    public void setVacaciones(int vacaciones) {
-        this.vacaciones = vacaciones;
-    }
 
     @Override
     public String toString() {
