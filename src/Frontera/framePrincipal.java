@@ -18,6 +18,7 @@ public class framePrincipal extends javax.swing.JFrame {
     private retirarempleado retirar = new retirarempleado();
     private cargos elegircargo = new cargos();
     private lista nomina = new lista();
+    private static ListaEmpleados lista=new ListaEmpleados();
     public framePrincipal() {
         initComponents();
     }
@@ -165,11 +166,12 @@ public class framePrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                inicializar();
                 new framePrincipal().setVisible(true);
             }
         });
     }
-    public void inicializar(){
+    public static void inicializar(){
        
  
     EmpleadoEntidad uno=new EmpleadoEntidad();
@@ -214,8 +216,7 @@ public class framePrincipal extends javax.swing.JFrame {
         tres.setId("1013647467");
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
-        
-        ListaEmpleados lista=new ListaEmpleados();
+                
         lista.AñadirEmpleado(uno);
         lista.AñadirEmpleado(dos);
         lista.AñadirEmpleado(tres);
