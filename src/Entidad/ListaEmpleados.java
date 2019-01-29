@@ -14,25 +14,26 @@ import java.util.ArrayList;
 public class ListaEmpleados {
     private ArrayList <EmpleadoEntidad> listaEmpleados;
 
-    public ListaEmpleados(ArrayList<EmpleadoEntidad> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
-    }
+
 
     public ListaEmpleados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       this.listaEmpleados = new ArrayList<EmpleadoEntidad>();
     }
     
     public void AñadirEmpleado (EmpleadoEntidad emp){
         this.listaEmpleados.add(emp);
     }
     
-    public EmpleadoEntidad mostrarEmpleado(String id){
+    public EmpleadoEntidad getEmpleado(String id){
         EmpleadoEntidad aux=new EmpleadoEntidad();
        for(int i=0;i < listaEmpleados.size();i++){
-           if(id == (listaEmpleados.get(i).getId())){
+           if(id.equals(listaEmpleados.get(i).getId())){
                aux= listaEmpleados.get(i);
            }
        }
        return aux;
+    }
+    public int size(){
+        return listaEmpleados.size();
     }
 }

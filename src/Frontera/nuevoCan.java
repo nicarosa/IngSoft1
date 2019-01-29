@@ -54,7 +54,7 @@ public class nuevoCan extends javax.swing.JPanel {
         guardarB = new javax.swing.JButton();
         cancelarB = new javax.swing.JButton();
         mensaje = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        idTF = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -120,10 +120,9 @@ public class nuevoCan extends javax.swing.JPanel {
 
         mensaje.setText("Contacto Guardado Satisfactoriamente");
 
-        jTextField1.setText("                               ");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        idTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                idTFActionPerformed(evt);
             }
         });
 
@@ -139,9 +138,6 @@ public class nuevoCan extends javax.swing.JPanel {
 
         jLabel17.setText("Experiencia (años)");
 
-        nombretf.setText("                  ");
-
-        apellidoTF.setText(" ");
         apellidoTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apellidoTFActionPerformed(evt);
@@ -153,8 +149,6 @@ public class nuevoCan extends javax.swing.JPanel {
         CarreraCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Psicologia", "Ingenieria", "Economia", "Estadistica", "Ninguna" }));
 
         UniversidadCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nacinal", "Andes", "Extrangera", "otras" }));
-
-        ExperienciaTF.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -168,7 +162,7 @@ public class nuevoCan extends javax.swing.JPanel {
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(mensaje)
                         .addGap(84, 84, 84))
@@ -186,12 +180,16 @@ public class nuevoCan extends javax.swing.JPanel {
                                 .addComponent(nombretf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel17))
-                                .addGap(142, 142, 142)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel16)
+                                            .addComponent(jLabel17))
+                                        .addGap(142, 142, 142))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(45, 45, 45)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(apellidoTF, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(NivelDeEstudiosCB, javax.swing.GroupLayout.Alignment.TRAILING, 0, 100, Short.MAX_VALUE)
@@ -208,7 +206,7 @@ public class nuevoCan extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -225,7 +223,7 @@ public class nuevoCan extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(CarreraCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(UniversidadCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,7 +231,7 @@ public class nuevoCan extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(ExperienciaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarB)
                     .addComponent(cancelarB))
@@ -246,14 +244,15 @@ public class nuevoCan extends javax.swing.JPanel {
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
        mensaje.setVisible(true);
        CandidatoEntidad candidato = new CandidatoEntidad();
-       candidato.setNombre(nombretf.getSelectedText());
-       candidato.setApellido(apellidoTF.getSelectedText());
-       candidato.setNivelDeEstudios(NivelDeEstudiosCB.getToolTipText());
-       candidato.setUniversidad(UniversidadCB.getToolTipText());
-       candidato.setProfesion(CarreraCB.getToolTipText());
+       candidato.setId(idTF.getText());
+       candidato.setNombre(nombretf.getText());
+       candidato.setApellido(apellidoTF.getText());
+       candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
+       candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
+       candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
        
        framePrincipal.listaCandidatos.AñadirCandidato(candidato);
-       System.out.println(framePrincipal.listaCandidatos.getCandidato("1019146963").toString());
+             
     }//GEN-LAST:event_guardarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed
@@ -261,9 +260,9 @@ public class nuevoCan extends javax.swing.JPanel {
         this.removeAll();
     }//GEN-LAST:event_cancelarBActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void idTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_idTFActionPerformed
 
     private void apellidoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTFActionPerformed
         // TODO add your handling code here:
@@ -281,6 +280,7 @@ public class nuevoCan extends javax.swing.JPanel {
     private javax.swing.JTextField contactoTF;
     private javax.swing.JTextField direccionTF;
     private javax.swing.JButton guardarB;
+    private javax.swing.JTextField idTF;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -304,7 +304,6 @@ public class nuevoCan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel mensaje;
     private javax.swing.JTextField nombreTF;

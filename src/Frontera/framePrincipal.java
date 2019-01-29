@@ -6,6 +6,7 @@
 package Frontera;
 
 import Entidad.EmpleadoEntidad;
+import Entidad.ListaCandidatos;
 import Entidad.ListaEmpleados;
 
 /**
@@ -18,7 +19,8 @@ public class framePrincipal extends javax.swing.JFrame {
     private retirarempleado retirar = new retirarempleado();
     private cargos elegircargo = new cargos();
     private lista nomina = new lista();
-    private static ListaEmpleados lista=new ListaEmpleados();
+    public static ListaEmpleados listaEmpleados = new ListaEmpleados();
+    public static ListaCandidatos listaCandidatos = new ListaCandidatos();
     public framePrincipal() {
         initComponents();
     }
@@ -217,9 +219,9 @@ public class framePrincipal extends javax.swing.JFrame {
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
                 
-        lista.AñadirEmpleado(uno);
-        lista.AñadirEmpleado(dos);
-        lista.AñadirEmpleado(tres);
+        listaEmpleados.AñadirEmpleado(uno);
+        listaEmpleados.AñadirEmpleado(dos);
+        listaEmpleados.AñadirEmpleado(tres);
         
     }
     

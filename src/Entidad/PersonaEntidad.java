@@ -52,7 +52,7 @@ public class PersonaEntidad {
 
     @Override
     public String toString() {
-        return nombre + " " + apellido + " " + id + " " + edad;
+        return this.nombre + " " + this.apellido + " " + this.id + " " + this.edad;
     }
     
 }

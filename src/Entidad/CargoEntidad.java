@@ -13,7 +13,7 @@ public class CargoEntidad {
     private String nombre;
     private String carreraOptima;
     private String carrerasAfines;
-    private int sueldo;
+    private double sueldo;
 
     public CargoEntidad() {
     }
@@ -42,7 +42,7 @@ public class CargoEntidad {
         this.carrerasAfines = carrerasAfines;
     }
 
-    public int getSueldo() {
+    public double getSueldo() {
         return sueldo;
     }
 

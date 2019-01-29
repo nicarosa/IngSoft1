@@ -80,11 +80,28 @@ public class EmpleadoEntidad extends PersonaEntidad{
         this.activo = activo;
     }
 
+    public CargoEntidad getCargo() {
+        return cargo;
+    }
 
+    public void setCargo(CargoEntidad cargo) {
+        this.cargo = cargo;
+    }
+
+    public novedadEntidad getNovedades() {
+        return novedades;
+    }
+
+    public void setNovedades(novedadEntidad novedades) {
+        this.novedades = novedades;
+    }
+
+    
     @Override
     public String toString() {
         return super.toString() + " " + ARL + " " + EPS + " " + pensiones + " " + cesantias + " " + contactoDeEmergencia + " " + direccion; 
     }
-    
+
+ 
     
 }

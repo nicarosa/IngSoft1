@@ -12,6 +12,7 @@ package Entidad;
 public class novedadEntidad {
     private int horasExtra;
     private int horasNocturnas;
+    private int horasDominicales;
     private int bonos;
     private int incapacidad;//en dias mayor a 3 
     private int faltas;//en dias
@@ -76,6 +77,14 @@ public class novedadEntidad {
 
     public void setAdelanto(int adelanto) {
         this.adelanto = adelanto;
+    }
+
+    public int getHorasDominicales() {
+        return horasDominicales;
+    }
+
+    public void setHorasDominicales(int horasDominicales) {
+        this.horasDominicales = horasDominicales;
     }
     
     
