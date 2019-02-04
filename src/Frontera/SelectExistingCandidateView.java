@@ -5,18 +5,34 @@
  */
 package Frontera;
 
+import Entidad.CandidatesTableModel;
+import javax.swing.JComponent;
+import Frontera.PrincipalFrame;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Nicolas
  */
-public class candidatosExistentes extends javax.swing.JPanel {
+public class SelectExistingCandidateView extends javax.swing.JPanel {
+    
+    private HireCandidateView contratar = new HireCandidateView();
+    private JPanel ParentPanel;
 
     /**
      * Creates new form candidatosExistentes
      */
-    public candidatosExistentes() {
+    public SelectExistingCandidateView(JPanel panel) {
+        ParentPanel = panel;
         initComponents();
-        mensaje.setVisible(false);
+        candidatosTB.setModel(new CandidatesTableModel(PrincipalFrame.listaCandidatos));
+    }
+    
+    private void ActualizarGUI(JComponent component1, JComponent component2) {
+        component1.removeAll();
+        component1.add(component2);
+        component1.revalidate();
+        component1.repaint();
     }
 
     /**
@@ -90,7 +106,7 @@ public class candidatosExistentes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seleccionarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarBActionPerformed
-        mensaje.setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, contratar));
     }//GEN-LAST:event_seleccionarBActionPerformed
 
 

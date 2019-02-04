@@ -9,12 +9,12 @@ package Frontera;
  *
  * @author Nicolas
  */
-public class retirarempleado extends javax.swing.JPanel {
+public class RemoveView extends javax.swing.JPanel {
 
     /**
      * Creates new form retirarempleado
      */
-    public retirarempleado() {
+    public RemoveView() {
         initComponents();
         mensaje.setVisible(false);
     }

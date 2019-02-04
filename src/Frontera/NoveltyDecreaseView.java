@@ -9,12 +9,12 @@ package Frontera;
  *
  * @author Nicolas
  */
-public class novedadP extends javax.swing.JPanel {
-
+public class NoveltyDecreaseView extends javax.swing.JPanel {
+    
     /**
-     * Creates new form novedadP
+     * Creates new form disminucionP
      */
-    public novedadP() {
+    public NoveltyDecreaseView() {
         initComponents();
         confirmLB.setVisible(false);
     }
@@ -38,7 +38,7 @@ public class novedadP extends javax.swing.JPanel {
 
         jLabel1.setText("Tipo de novedad");
 
-        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Horas Nocturnas", "Horas Dominicales", "Bonificaciones", "Horas Extra" }));
+        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Adelantado", "Ausencias", "Llegadas tarde", " " }));
         novedadesCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novedadesCBActionPerformed(evt);
@@ -68,12 +68,12 @@ public class novedadP extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addGap(124, 124, 124)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(37, 37, 37)
-                        .addComponent(novedadesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(novedadesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(25, 25, 25)
@@ -81,16 +81,17 @@ public class novedadP extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(aceptarB)
                         .addGap(84, 84, 84)
-                        .addComponent(cancelarB))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(confirmLB)))
-                .addGap(149, 149, 149))
+                        .addComponent(cancelarB)))
+                .addGap(124, 124, 124))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(confirmLB)
+                .addGap(159, 159, 159))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
@@ -106,7 +107,7 @@ public class novedadP extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(aceptarB)
                     .addComponent(cancelarB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(confirmLB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -117,12 +118,12 @@ public class novedadP extends javax.swing.JPanel {
     }//GEN-LAST:event_novedadesCBActionPerformed
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
-        confirmLB.setVisible(true);
+       confirmLB.setVisible(true);
     }//GEN-LAST:event_aceptarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed
         this.setVisible(false);
-        this.removeAll();
+        this.removeAll();  
     }//GEN-LAST:event_cancelarBActionPerformed
 
 

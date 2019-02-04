@@ -5,19 +5,34 @@
  */
 package Frontera;
 
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Nicolas
  */
-public class seleccionE extends javax.swing.JPanel {
+public class SelectView2 extends javax.swing.JPanel {
     
-private nuevoCan candidato = new nuevoCan();
-private candidatosExistentes candidatos = new candidatosExistentes();
+private SelectNewCandidateView candidato;
+private SelectExistingCandidateView candidatos;
+
+private JPanel ParentPanel;
     /**
      * Creates new form seleccionE
      */
-    public seleccionE() {
+    public SelectView2(JPanel panel) {
+        ParentPanel = panel;
+        candidato = new SelectNewCandidateView(ParentPanel);
+        candidatos = new SelectExistingCandidateView(ParentPanel);
         initComponents();
+    }
+    
+    private void ActualizarGUI(JComponent component1, JComponent component2) {
+        component1.removeAll();
+        component1.add(component2);
+        component1.revalidate();
+        component1.repaint();
     }
 
     /**
@@ -35,7 +50,7 @@ private candidatosExistentes candidatos = new candidatosExistentes();
 
         setLayout(new java.awt.GridBagLayout());
 
-        nuevopB.setText("Nuevo perfil de empleado");
+        nuevopB.setText("Nuevo perfil de candidato");
         nuevopB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevopBActionPerformed(evt);
@@ -49,7 +64,7 @@ private candidatosExistentes candidatos = new candidatosExistentes();
         gridBagConstraints.insets = new java.awt.Insets(86, 100, 0, 109);
         add(nuevopB, gridBagConstraints);
 
-        buscarB.setText("Buscar en empleados registrados");
+        buscarB.setText("Buscar en candidatos registrados");
         buscarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarBActionPerformed(evt);
@@ -64,17 +79,11 @@ private candidatosExistentes candidatos = new candidatosExistentes();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nuevopBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevopBActionPerformed
-        this.setVisible(false);
-        this.removeAll();
-        this.add(candidato);
-        this.setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(() ->ActualizarGUI(ParentPanel, candidato));
     }//GEN-LAST:event_nuevopBActionPerformed
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
-        this.setVisible(false);
-        this.removeAll();
-        this.add(candidatos);
-        this.setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, candidatos));
     }//GEN-LAST:event_buscarBActionPerformed
 
 

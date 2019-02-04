@@ -9,12 +9,12 @@ package Frontera;
  *
  * @author Nicolas
  */
-public class buscarEmpleadoNovedad extends javax.swing.JPanel {
-    private elegirTipoNovedad elegirN = new elegirTipoNovedad();
+public class NoveltySearchView extends javax.swing.JPanel {
+    private NoveltyChooseView elegirN = new NoveltyChooseView();
     /**
      * Creates new form buscarEmpleadoNovedad
      */
-    public buscarEmpleadoNovedad() {
+    public NoveltySearchView() {
         initComponents();
     }
 
