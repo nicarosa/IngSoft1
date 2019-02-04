@@ -9,12 +9,12 @@ package Frontera;
  *
  * @author Nicolas
  */
-public class lista extends javax.swing.JPanel {
+public class RosterView extends javax.swing.JPanel {
 
     /**
      * Creates new form lista
      */
-    public lista() {
+    public RosterView() {
         initComponents();
     }
 

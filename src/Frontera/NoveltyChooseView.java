@@ -9,13 +9,13 @@ package Frontera;
  *
  * @author Nicolas
  */
-public class elegirTipoNovedad extends javax.swing.JPanel {
-private novedadP aumento = new novedadP();
-private disminucionP disminucion = new disminucionP();
+public class NoveltyChooseView extends javax.swing.JPanel {
+private NoveltyView aumento = new NoveltyView();
+private NoveltyDecreaseView disminucion = new NoveltyDecreaseView();
     /**
      * Creates new form elegirTipoNovedad
      */
-    public elegirTipoNovedad() {
+    public NoveltyChooseView() {
         initComponents();
     }
 

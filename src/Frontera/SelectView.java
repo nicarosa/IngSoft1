@@ -5,16 +5,30 @@
  */
 package Frontera;
 
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Nicolas
  */
-public class cargos extends javax.swing.JPanel {
+public class SelectView extends javax.swing.JPanel {
+    
+    private JPanel ParentPanel;
 
-    private seleccionE select = new seleccionE();
+    private SelectView2 select;
      
-    public cargos() {
+    public SelectView(JPanel panel) {
+        ParentPanel = panel;
+        select = new SelectView2(ParentPanel);
         initComponents();
+    }
+    
+    private void ActualizarGUI(JComponent component1, JComponent component2) {
+        component1.removeAll();
+        component1.add(component2);
+        component1.revalidate();
+        component1.repaint();
     }
 
     /**
@@ -56,10 +70,7 @@ public class cargos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cargoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoBActionPerformed
-        this.setVisible(false);
-        this.removeAll();
-        this.add(select);
-        this.setVisible(true);
+        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, select));
     }//GEN-LAST:event_cargoBActionPerformed
 
 

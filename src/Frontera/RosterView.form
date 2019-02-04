@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,44 +16,32 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="buscarTF" min="-2" pref="85" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jScrollPane1" alignment="0" pref="584" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-              <Component id="mensaje" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="seleccionarB" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jScrollPane1" alignment="0" pref="400" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="263" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="seleccionarB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="mensaje" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buscarTF" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="240" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Por favor selecciona uno de los siguientes candidatos:"/>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -61,36 +49,36 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="candidatosTB">
+        <Component class="javax.swing.JTable" name="listaT">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="5" rowCount="4">
                 <Column editable="true" title="Nombre" type="java.lang.Object">
-                  <Data value="Gonzalo P."/>
+                  <Data value="Anderson C."/>
+                  <Data value="Marco B."/>
                   <Data value="Maria M."/>
-                  <Data value="Laura L."/>
-                  <Data value="Ryan G."/>
+                  <Data value="Valerie L."/>
                 </Column>
-                <Column editable="true" title="Carrera" type="java.lang.Object">
-                  <Data value="Cook"/>
+                <Column editable="true" title="Cargo" type="java.lang.Object">
+                  <Data value="Presidente"/>
+                  <Data value="Head Chef"/>
                   <Data value="Cook"/>
                   <Data value="Head Chef"/>
-                  <Data value="Waiter"/>
                 </Column>
-                <Column editable="true" title="Aptitud" type="java.lang.Object">
-                  <Data value="95%"/>
-                  <Data value="81%"/>
-                  <Data value="51%"/>
-                  <Data value="17%"/>
+                <Column editable="true" title="Edad" type="java.lang.Object">
+                  <Data value="43"/>
+                  <Data value="26"/>
+                  <Data value="21"/>
+                  <Data value="32"/>
                 </Column>
-                <Column editable="true" title="Salario Proyectado" type="java.lang.Object">
-                  <Data value="900   USD"/>
-                  <Data value="1000 USD"/>
-                  <Data value="2000 USD"/>
-                  <Data value="500   USD"/>
+                <Column editable="true" title="Salario" type="java.lang.Object">
+                  <Data value="3000 USD"/>
+                  <Data value="1500 USD"/>
+                  <Data value="800 USD"/>
+                  <Data value="1800 USD"/>
                 </Column>
-                <Column editable="true" title="Ex-Empleado" type="java.lang.Object">
-                  <Data value="NO"/>
+                <Column editable="true" title="Activo" type="java.lang.Object">
+                  <Data value="SI"/>
                   <Data value="SI"/>
                   <Data value="NO"/>
                   <Data value="NO"/>
@@ -133,17 +121,14 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="seleccionarB">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Seleccionar"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="buscarTF">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seleccionarBActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarTFActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="mensaje">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Empleado Preseleccionado Satisfactoriamente"/>
+        <Property name="text" type="java.lang.String" value="Buscar Empleado"/>
       </Properties>
     </Component>
   </SubComponents>

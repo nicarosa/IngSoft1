@@ -12,7 +12,7 @@ package Entidad;
 public class prueba {
 
     public static void main(String[] args) {
-        EmpleadoEntidad emp1 = new EmpleadoEntidad();
+        EmployeeEntity emp1 = new EmployeeEntity();
         emp1.setNombre("Juan");
         System.out.println(emp1.toString());
     }

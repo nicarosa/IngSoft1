@@ -5,17 +5,17 @@
  */
 package Frontera;
 
-import Entidad.CandidatoEntidad;
+import Entidad.CandidateEntity;
 
 /**
  *
  * @author Nicolas
  */
-public class nuevoCan extends javax.swing.JPanel {
+public class HireCandidateView extends javax.swing.JPanel {
     /**
      * Creates new form nuevoCan
      */
-    public nuevoCan() {
+    public HireCandidateView() {
         initComponents();
         mensaje.setVisible(false);
     }
@@ -67,6 +67,12 @@ public class nuevoCan extends javax.swing.JPanel {
         CarreraCB = new javax.swing.JComboBox<>();
         UniversidadCB = new javax.swing.JComboBox<>();
         ExperienciaTF = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        apellidoTF1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        apellidoTF2 = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        apellidoTF3 = new javax.swing.JTextField();
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Item 2", "Item 3", "Item 4" }));
 
@@ -100,7 +106,8 @@ public class nuevoCan extends javax.swing.JPanel {
 
         jTextField4.setText("jTextField4");
 
-        jLabel1.setText("Datos del Candidato");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Datos del Empleado");
 
         jLabel2.setText("Cédula");
 
@@ -118,7 +125,7 @@ public class nuevoCan extends javax.swing.JPanel {
             }
         });
 
-        mensaje.setText("Contacto Guardado Satisfactoriamente");
+        mensaje.setText("Empleado Contratado Satisfactoriamente");
 
         idTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,13 +137,13 @@ public class nuevoCan extends javax.swing.JPanel {
 
         jLabel13.setText("Apellido");
 
-        jLabel14.setText("Nivel de Estudios");
+        jLabel14.setText("AFP");
 
-        jLabel15.setText("Carrera");
+        jLabel15.setText("ARL");
 
-        jLabel16.setText("Universidad");
+        jLabel16.setText("EPS");
 
-        jLabel17.setText("Experiencia (años)");
+        jLabel17.setText("Contacto de Emergencia");
 
         apellidoTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,53 +157,73 @@ public class nuevoCan extends javax.swing.JPanel {
 
         UniversidadCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nacinal", "Andes", "Extrangera", "otras" }));
 
+        jLabel18.setText("Edad");
+
+        apellidoTF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidoTF1ActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("Dirección");
+
+        apellidoTF2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidoTF2ActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Teléfono");
+
+        apellidoTF3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidoTF3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(mensaje)
-                        .addGap(84, 84, 84))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(guardarB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelarB)
-                                .addGap(54, 54, 54))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nombretf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14)
-                                            .addComponent(jLabel16)
-                                            .addComponent(jLabel17))
-                                        .addGap(142, 142, 142))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(45, 45, 45)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(apellidoTF, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(NivelDeEstudiosCB, javax.swing.GroupLayout.Alignment.TRAILING, 0, 100, Short.MAX_VALUE)
-                                    .addComponent(CarreraCB, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UniversidadCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ExperienciaTF))))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel20))
+                        .addGap(134, 134, 134)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nombretf)
+                            .addComponent(idTF)
+                            .addComponent(apellidoTF, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(NivelDeEstudiosCB, javax.swing.GroupLayout.Alignment.TRAILING, 0, 139, Short.MAX_VALUE)
+                            .addComponent(CarreraCB, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(UniversidadCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ExperienciaTF)
+                            .addComponent(apellidoTF1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(apellidoTF2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(apellidoTF3, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guardarB)
+                        .addGap(44, 44, 44)
+                        .addComponent(cancelarB)
+                        .addGap(124, 124, 124)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mensaje)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,6 +244,18 @@ public class nuevoCan extends javax.swing.JPanel {
                     .addComponent(apellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apellidoTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apellidoTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apellidoTF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(NivelDeEstudiosCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -231,19 +270,18 @@ public class nuevoCan extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(ExperienciaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardarB)
                     .addComponent(cancelarB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mensaje)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(mensaje))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
        mensaje.setVisible(true);
-       CandidatoEntidad candidato = new CandidatoEntidad();
+       CandidateEntity candidato = new CandidateEntity();
        candidato.setId(idTF.getText());
        candidato.setNombre(nombretf.getText());
        candidato.setApellido(apellidoTF.getText());
@@ -251,7 +289,7 @@ public class nuevoCan extends javax.swing.JPanel {
        candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
        candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
        
-       framePrincipal.listaCandidatos.AñadirCandidato(candidato);
+       PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
              
     }//GEN-LAST:event_guardarBActionPerformed
 
@@ -268,6 +306,18 @@ public class nuevoCan extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_apellidoTFActionPerformed
 
+    private void apellidoTF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidoTF1ActionPerformed
+
+    private void apellidoTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidoTF2ActionPerformed
+
+    private void apellidoTF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTF3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidoTF3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CarreraCB;
@@ -275,6 +325,9 @@ public class nuevoCan extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> NivelDeEstudiosCB;
     private javax.swing.JComboBox<String> UniversidadCB;
     private javax.swing.JTextField apellidoTF;
+    private javax.swing.JTextField apellidoTF1;
+    private javax.swing.JTextField apellidoTF2;
+    private javax.swing.JTextField apellidoTF3;
     private javax.swing.JButton cancelarB;
     private javax.swing.JTextField cedulaTF;
     private javax.swing.JTextField contactoTF;
@@ -296,7 +349,10 @@ public class nuevoCan extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
