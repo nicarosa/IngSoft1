@@ -303,6 +303,7 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
            this.revalidate();
            this.repaint();
         });
+       mensaje.setVisible(true);
        CandidateEntity candidato = new CandidateEntity();
        candidato.setId(idTF.getText());
        candidato.setNombre(nombretf.getText());
@@ -310,12 +311,17 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
        candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
        candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
        candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
+       candidato.setExperiencia(Integer.parseInt(ExperienciaTF.getText()));
+       
+       
        //Hace falta hacer el método en el controlador que coloque esto, esto es por default
        candidato.setAptitud(90.9);
        //Este campo no está en la lista, toca añadirlo
        candidato.setSalario_proyectado(1000.0);
        
-       PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
+       PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);       
+       System.out.print(PrincipalFrame.listaCandidatos.getCandidato(idTF.getText()).toString());
+       
              
     }//GEN-LAST:event_guardarBActionPerformed
 

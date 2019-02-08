@@ -5,6 +5,8 @@
  */
 package Frontera;
 
+import Entidad.EmployeeEntity;
+
 /**
  *
  * @author Nicolas
@@ -117,7 +119,31 @@ public class NoveltyView extends javax.swing.JPanel {
     }//GEN-LAST:event_novedadesCBActionPerformed
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
+        EmployeeEntity aux = NoveltySearchView.getAux();
+        switch (novedadesCB.getSelectedIndex()){
+            case 0:
+                aux.getNovedades().setHorasNocturnas(aux.getNovedades().getHorasNocturnas() 
+                        + Integer.parseInt(cantidadTF.getText()));
+                break;
+            case 1:
+                aux.getNovedades().setHorasDominicales(aux.getNovedades().getHorasDominicales()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
+            case 2:
+                aux.getNovedades().setBonos(aux.getNovedades().getBonos()+
+                        Integer.parseInt(cantidadTF.getText()));                
+                break;            
+            case 3:    
+                aux.getNovedades().setHorasExtra(aux.getNovedades().getHorasExtra()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
+        }
+        PrincipalFrame.listaEmpleados.retiarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());
         confirmLB.setVisible(true);
+        
     }//GEN-LAST:event_aceptarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed

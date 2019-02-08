@@ -5,12 +5,17 @@
  */
 package Frontera;
 
+import Entidad.EmployeeEntity;
+import java.awt.GridBagConstraints;
+import java.awt.Label;
+
 /**
  *
  * @author Nicolas
  */
 public class NoveltySearchView extends javax.swing.JPanel {
     private NoveltyChooseView elegirN = new NoveltyChooseView();
+    private static EmployeeEntity aux = new EmployeeEntity();
     /**
      * Creates new form buscarEmpleadoNovedad
      */
@@ -41,6 +46,12 @@ public class NoveltySearchView extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(117, 123, 0, 0);
         add(jLabel1, gridBagConstraints);
+
+        documentoTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                documentoTFActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -67,12 +78,31 @@ public class NoveltySearchView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
+    
+    
+    String documento = this.documentoTF.getText();
+    aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
 
-      this.setVisible(false);
-      this.removeAll();
-      this.add(elegirN);
-      this.setVisible(true);  
+    if (aux != null){
+        jLabel1.setVisible(false);
+        jLabel1.removeAll();
+        this.setVisible(false);
+        this.removeAll();
+        this.add(elegirN);
+        this.setVisible(true);
+    
+    }
+    
+    
     }//GEN-LAST:event_buscarBActionPerformed
+
+    private void documentoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_documentoTFActionPerformed
+
+    public static EmployeeEntity getAux() {
+        return aux;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

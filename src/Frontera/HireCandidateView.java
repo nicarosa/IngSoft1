@@ -280,17 +280,7 @@ public class HireCandidateView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-       mensaje.setVisible(true);
-       CandidateEntity candidato = new CandidateEntity();
-       candidato.setId(idTF.getText());
-       candidato.setNombre(nombretf.getText());
-       candidato.setApellido(apellidoTF.getText());
-       candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
-       candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
-       candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
-       
-       PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
-             
+       mensaje.setVisible(true);       
     }//GEN-LAST:event_guardarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed

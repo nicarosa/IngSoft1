@@ -5,6 +5,8 @@
  */
 package Frontera;
 
+import Entidad.EmployeeEntity;
+
 /**
  *
  * @author Nicolas
@@ -38,7 +40,7 @@ public class NoveltyDecreaseView extends javax.swing.JPanel {
 
         jLabel1.setText("Tipo de novedad");
 
-        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pago Adelantado", "Ausencias", "Llegadas tarde", " " }));
+        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Incapacidad", "Faltas", "Pago Adelantado", "Vacaciones" }));
         novedadesCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novedadesCBActionPerformed(evt);
@@ -118,7 +120,31 @@ public class NoveltyDecreaseView extends javax.swing.JPanel {
     }//GEN-LAST:event_novedadesCBActionPerformed
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
-       confirmLB.setVisible(true);
+       EmployeeEntity aux = NoveltySearchView.getAux();
+        switch (novedadesCB.getSelectedIndex()){
+            case 0:
+                aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
+            case 1:
+                aux.getNovedades().setFaltas(aux.getNovedades().getFaltas()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
+            case 2:
+                aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto()+
+                        Integer.parseInt(cantidadTF.getText()));                
+                break;            
+            case 3:    
+                aux.getNovedades().setVacaciones(aux.getNovedades().getVacaciones()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
+        }
+        PrincipalFrame.listaEmpleados.retiarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());
+        
+        confirmLB.setVisible(true);
     }//GEN-LAST:event_aceptarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed

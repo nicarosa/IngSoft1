@@ -86,6 +86,14 @@ public class NoveltyEntity {
     public void setHorasDominicales(int horasDominicales) {
         this.horasDominicales = horasDominicales;
     }
+
+    @Override
+    public String toString() {
+        return "Horas Nocturas :" + this.horasNocturnas + "Horas Dominicales :"
+                + this.horasDominicales + "Bonificaciones :" + this.bonos + "Horas Extra :" + this.horasExtra
+                + "Incapacidad :" + this.incapacidad + "Faltas :" + this.faltas + "Adelantos :" + this.adelanto +
+                "Vacaciones :" + this.vacaciones;        
+    }
     
     
 }

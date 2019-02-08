@@ -25,13 +25,26 @@ public class EmployeesList {
     }
     
     public EmployeeEntity getEmpleado(String id){
-        EmployeeEntity aux=new EmployeeEntity();
+       EmployeeEntity aux = new EmployeeEntity();
        for(int i=0;i < listaEmpleados.size();i++){
            if(id.equals(listaEmpleados.get(i).getId())){
                aux= listaEmpleados.get(i);
+               break;
+           }
+           else{
+               aux = null;
            }
        }
        return aux;
+    }
+    public void retiarEmpleado(String id){
+       EmployeeEntity aux = new EmployeeEntity();
+       for(int i=0;i < listaEmpleados.size();i++){
+           if(id.equals(listaEmpleados.get(i).getId())){
+               listaEmpleados.remove(i);
+           }
+           
+       } 
     }
     public int size(){
         return listaEmpleados.size();
