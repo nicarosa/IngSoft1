@@ -14,12 +14,11 @@ import Entidad.EmployeesList;
  */
 public class RemoveControl {
     
-    public static double RemoveEmployee(String id){
-        EmployeeEntity aux = Entidad.EmployeesList.getEmpleado(id);
-        if(aux==null){System.out.println("No existe empleado");return -1;}
+    public static double RemoveEmployee(EmployeeEntity aux){
+        
         double Monto;
     Monto=Liquidar(aux);
-    EmployeesList.retirarEmpleado(id);
+    EmployeesList.retirarEmpleado(aux.getId());
     return Monto;
     }
     

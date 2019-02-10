@@ -9,6 +9,7 @@ import Control.CalculateSalaryControl;
 import Control.RemoveControl;
 import Entidad.EmployeeEntity;
 import Entidad.EmployeesList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public class RemoveView extends javax.swing.JPanel {
      */
     public RemoveView() {
         initComponents();
-       // mensaje.setVisible(false);
+        // mensaje.setVisible(false);
     }
 
     /**
@@ -85,14 +86,25 @@ public class RemoveView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        EmployeeEntity Retirado = new EmployeeEntity();
+
         String RetirarId = buscarTF.getText();
-        double Salario=0;
-        Salario=RemoveControl.RemoveEmployee(RetirarId);
+        EmployeeEntity Retirado = new EmployeeEntity();
+        double Salario = 0;
+        Retirado = Entidad.EmployeesList.getEmpleado(RetirarId);
+        if (Retirado == null) {
+            JOptionPane.showMessageDialog(null,"No existe el empleado");
+            
+        }else{
+            int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado "+Retirado.getNombre()+" "+Retirado.getApellido());
+            if(descicion == JOptionPane.YES_OPTION){
+                Salario = RemoveControl.RemoveEmployee(Retirado);
+        JOptionPane.showMessageDialog(null,"El empleado ha sido retirado y su liquidacion es de: "+Salario+" $");
+            }
+    
         
-        System.out.println("Despedido"+Salario);
-        
-       
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
