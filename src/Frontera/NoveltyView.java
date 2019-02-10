@@ -40,7 +40,7 @@ public class NoveltyView extends javax.swing.JPanel {
 
         jLabel1.setText("Tipo de novedad");
 
-        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Horas Nocturnas", "Horas Dominicales", "Bonificaciones", "Horas Extra" }));
+        novedadesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Horas Nocturnas", "Horas Dominicales", "Bonificaciones", "Horas Extra", "HorasTrabajadas", " " }));
         novedadesCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novedadesCBActionPerformed(evt);
@@ -137,8 +137,13 @@ public class NoveltyView extends javax.swing.JPanel {
                 aux.getNovedades().setHorasExtra(aux.getNovedades().getHorasExtra()+
                         Integer.parseInt(cantidadTF.getText()));
                 break;
+                
+            case 4:    
+                aux.getNovedades().setHorasTrabajadas(aux.getNovedades().getHorasTrabajadas()+
+                        Integer.parseInt(cantidadTF.getText()));
+                break;
         }
-        PrincipalFrame.listaEmpleados.retiarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());

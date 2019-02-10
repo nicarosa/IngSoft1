@@ -242,7 +242,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setARL("1020");
         uno.setActivo(true);
         uno.setApellido("CHAVES");
-        uno.setCesantias(23);
         uno.setContactoDeEmergencia(305612321);
         uno.setDireccion("Avenida calle 22#15-69");
         uno.setEPS("SaludCoop");
@@ -250,6 +249,8 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setId("1030685411");
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
+        uno.getNovedades().setHorasTrabajadas(2880);
+        uno.getCargo().setSueldo(900000);
 
         dos.setARL("1030");
         dos.setActivo(true);

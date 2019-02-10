@@ -5,6 +5,11 @@
  */
 package Frontera;
 
+import Control.CalculateSalaryControl;
+import Control.RemoveControl;
+import Entidad.EmployeeEntity;
+import Entidad.EmployeesList;
+
 /**
  *
  * @author Nicolas
@@ -16,7 +21,7 @@ public class RemoveView extends javax.swing.JPanel {
      */
     public RemoveView() {
         initComponents();
-        mensaje.setVisible(false);
+       // mensaje.setVisible(false);
     }
 
     /**
@@ -30,81 +35,71 @@ public class RemoveView extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         buscarTF = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        retirarT = new javax.swing.JTable();
-        retirarB = new javax.swing.JButton();
-        mensaje = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        jLabel1.setText("Buscar Empleado");
+        jLabel1.setText("Identificacion");
 
-        retirarT.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Anderson C.", "Presidente", "40", "3000 usd"},
-                {"Marco B.", "Head Chef", "23", "1500 usd"},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "Cargo", "Edad", "Salario"
-            }
-        ));
-        jScrollPane1.setViewportView(retirarT);
+        jLabel2.setText("Retirar Empleado");
 
-        retirarB.setText("Retirar");
-        retirarB.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Retirar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                retirarBActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        mensaje.setText("Empleado Retirado Con Éxito");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(buscarTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(buscarTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(165, 165, 165)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(mensaje)
-                        .addGap(18, 18, 18)
-                        .addComponent(retirarB)))
-                .addContainerGap())
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(buscarTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(retirarB)
-                    .addComponent(mensaje))
-                .addGap(33, 33, 33))
+                .addGap(74, 74, 74)
+                .addComponent(jButton1)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void retirarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarBActionPerformed
-        mensaje.setVisible(true);
-    }//GEN-LAST:event_retirarBActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        EmployeeEntity Retirado = new EmployeeEntity();
+        String RetirarId = buscarTF.getText();
+        double Salario=0;
+        Salario=RemoveControl.RemoveEmployee(RetirarId);
+        
+        System.out.println("Despedido"+Salario);
+        
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField buscarTF;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel mensaje;
-    private javax.swing.JButton retirarB;
-    private javax.swing.JTable retirarT;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

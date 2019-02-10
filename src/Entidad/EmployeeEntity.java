@@ -14,7 +14,7 @@ public class EmployeeEntity extends PersonEntity{
     private String EPS;
     private PositionEntity cargo;
     private int pensiones;
-    private int cesantias;
+    private double cesantias;
     private int contactoDeEmergencia;
     private String direccion;
     private boolean activo;     
@@ -51,11 +51,13 @@ public class EmployeeEntity extends PersonEntity{
         this.pensiones = pensiones;
     }
 
-    public int getCesantias() {
-        return cesantias;
+    public double getCesantias() {
+        
+        
+        return calcularCesantias();
     }
 
-    public void setCesantias(int cesantias) {
+    public void setCesantias(double cesantias) {
         this.cesantias = cesantias;
     }
 
@@ -97,6 +99,13 @@ public class EmployeeEntity extends PersonEntity{
 
     public void setNovedades(NoveltyEntity novedades) {
         this.novedades = novedades;
+    }
+    
+    public double calcularCesantias(){
+       
+    setCesantias(((((getNovedades().getHorasTrabajadas())/8)*(getCargo().getSueldo()))/360));
+
+    return this.cesantias;
     }
 
     

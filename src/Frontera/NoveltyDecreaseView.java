@@ -139,7 +139,7 @@ public class NoveltyDecreaseView extends javax.swing.JPanel {
                         Integer.parseInt(cantidadTF.getText()));
                 break;
         }
-        PrincipalFrame.listaEmpleados.retiarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());

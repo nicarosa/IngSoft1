@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class EmployeesList {
-    private ArrayList <EmployeeEntity> listaEmpleados;
+    private static ArrayList <EmployeeEntity> listaEmpleados;
 
 
 
@@ -24,10 +24,11 @@ public class EmployeesList {
         this.listaEmpleados.add(emp);
     }
     
-    public EmployeeEntity getEmpleado(String id){
+    public static EmployeeEntity getEmpleado(String id){
        EmployeeEntity aux = new EmployeeEntity();
        for(int i=0;i < listaEmpleados.size();i++){
            if(id.equals(listaEmpleados.get(i).getId())){
+             
                aux= listaEmpleados.get(i);
                break;
            }
@@ -37,10 +38,11 @@ public class EmployeesList {
        }
        return aux;
     }
-    public void retiarEmpleado(String id){
+    public static void retirarEmpleado(String id){
        EmployeeEntity aux = new EmployeeEntity();
        for(int i=0;i < listaEmpleados.size();i++){
            if(id.equals(listaEmpleados.get(i).getId())){
+             
                listaEmpleados.remove(i);
            }
            

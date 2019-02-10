@@ -10,6 +10,9 @@ package Entidad;
  * @author USUARIO
  */
 public class NoveltyEntity {
+
+   
+    private int horasTrabajadas;
     private int horasExtra;
     private int horasNocturnas;
     private int horasDominicales;
@@ -18,6 +21,14 @@ public class NoveltyEntity {
     private int faltas;//en dias
     private int adelanto; 
     private int vacaciones; //en dias
+    
+     public int getHorasTrabajadas() {
+        return horasTrabajadas;
+    }
+
+    public void setHorasTrabajadas(int horasTrabajadas) {
+        this.horasTrabajadas = horasTrabajadas;
+    }
 
     public NoveltyEntity() {
     }

@@ -13,7 +13,7 @@ import Frontera.PrincipalFrame;
  * @author USUARIO
  */
 public class CalculateSalaryControl {
-    public double calcular(String id){
+    public static double calcular(String id){
         double sueldoFinal=0;
         EmployeeEntity aux = new EmployeeEntity();
         aux = PrincipalFrame.listaEmpleados.getEmpleado(id);
