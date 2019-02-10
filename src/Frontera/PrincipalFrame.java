@@ -8,27 +8,50 @@ package Frontera;
 import Entidad.EmployeeEntity;
 import Entidad.CandidatesList;
 import Entidad.EmployeesList;
+import Entidad.PositionEntity;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Nicolas
  */
 public class PrincipalFrame extends javax.swing.JFrame {
+    
 
     public static EmployeesList listaEmpleados = new EmployeesList();
     public static CandidatesList listaCandidatos = new CandidatesList();
 
     public PrincipalFrame() {
         initComponents();
+    
     }
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
+    }
+    
+    public void addRowtoJtable(){
+        DefaultTableModel model = (DefaultTableModel) RosterView.listaT.getModel();
+        Object rowData[] = new Object[11];
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            rowData[0] = listaEmpleados.sacar(i).getNombre();
+            rowData[1] = listaEmpleados.sacar(i).getApellido();
+            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[3] = listaEmpleados.sacar(i).getEdad();
+            rowData[4] = listaEmpleados.sacar(i).getARL();
+            rowData[5] = listaEmpleados.sacar(i).getEPS();
+            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.sacar(i).getDireccion();
+            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            model.addRow(rowData);
+        }
     }
 
     /**
@@ -179,6 +202,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         javax.swing.SwingUtilities.invokeLater(() -> {
             ActualizarGUI(panelPrincipal, nomina);
             paintButtonActive(listarB);
+            addRowtoJtable();
         });
     }//GEN-LAST:event_listarBActionPerformed
 
@@ -236,9 +260,21 @@ public class PrincipalFrame extends javax.swing.JFrame {
         EmployeeEntity uno = new EmployeeEntity();
         EmployeeEntity dos = new EmployeeEntity();
         EmployeeEntity tres = new EmployeeEntity();
-        EmployeeEntity cuatro = new EmployeeEntity();
-        EmployeeEntity cinco = new EmployeeEntity();
 
+        PositionEntity Chef = new PositionEntity();
+        PositionEntity Janitor = new PositionEntity();
+        PositionEntity Dishwasher = new PositionEntity();
+        
+        Chef.setNombre("Head Chef");
+        Chef.setSueldo(2000000);
+        
+        Janitor.setNombre("Conserje");
+        Janitor.setSueldo(1000000);
+        
+        Dishwasher.setNombre("Lava Platos");
+        Dishwasher.setSueldo(800000);
+        
+                
         uno.setARL("1020");
         uno.setActivo(true);
         uno.setApellido("CHAVES");
@@ -250,7 +286,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
         uno.getNovedades().setHorasTrabajadas(2880);
-        uno.getCargo().setSueldo(900000);
+        uno.setCargo(Dishwasher);
 
         dos.setARL("1030");
         dos.setActivo(true);
@@ -263,6 +299,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         dos.setId("1019146963");
         dos.setNombre("SEBASTIAN");
         dos.setPensiones(900000);
+        dos.setCargo(Janitor);
 
         tres.setARL("1040");
         tres.setActivo(true);
@@ -275,6 +312,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         tres.setId("1013647467");
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
+        tres.setCargo(Chef);
 
         listaEmpleados.AñadirEmpleado(uno);
         listaEmpleados.AñadirEmpleado(dos);

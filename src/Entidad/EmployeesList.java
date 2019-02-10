@@ -24,6 +24,12 @@ public class EmployeesList {
         this.listaEmpleados.add(emp);
     }
     
+    public EmployeeEntity sacar(int indice){
+        EmployeeEntity aux = new EmployeeEntity();    
+            aux = listaEmpleados.get(indice);
+        return aux;
+    }
+    
     public static EmployeeEntity getEmpleado(String id){
        EmployeeEntity aux = new EmployeeEntity();
        for(int i=0;i < listaEmpleados.size();i++){
