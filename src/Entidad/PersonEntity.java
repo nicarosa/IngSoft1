@@ -10,6 +10,7 @@ package Entidad;
  * @author USUARIO
  */
 public class PersonEntity {
+
     private String nombre;
     private String apellido;
     private String id;
@@ -54,5 +55,5 @@ public class PersonEntity {
     public String toString() {
         return this.nombre + " " + this.apellido + " " + this.id + " " + this.edad;
     }
-    
+
 }

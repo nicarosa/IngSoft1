@@ -63,10 +63,10 @@ public class NoveltyEntity {
         this.HorasSinPrimaSemestral += (horasTrabajadas - this.horasTrabajadas);
         this.horasTrabajadas = horasTrabajadas;
         if (this.HorasSinPrimaSemestral >= 1440) {
-            while(HorasSinPrimaSemestral>1440) {
+            while (HorasSinPrimaSemestral > 1440) {
                 DarPrimaSemestral();
             }
-            
+
         }
 
     }

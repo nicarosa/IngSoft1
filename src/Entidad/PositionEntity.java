@@ -10,6 +10,7 @@ package Entidad;
  * @author USUARIO
  */
 public class PositionEntity {
+
     private String nombre;
     private String carreraOptima;
     private String carrerasAfines;
@@ -49,6 +50,5 @@ public class PositionEntity {
     public void setSueldo(int sueldo) {
         this.sueldo = sueldo;
     }
-    
-    
+
 }

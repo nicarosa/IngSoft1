@@ -21,21 +21,21 @@ import javax.swing.table.DefaultTableModel;
  * @author Nicolas
  */
 public class PrincipalFrame extends javax.swing.JFrame {
-    
 
     public static EmployeesList listaEmpleados = new EmployeesList();
     public static CandidatesList listaCandidatos = new CandidatesList();
 
     public PrincipalFrame() {
         initComponents();
-    
+        inicializar();
+
     }
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
     }
-    
-    public void addRowtoJtable(){
+
+    public void addRowtoJtable() {
         DefaultTableModel model = (DefaultTableModel) RosterView.listaT.getModel();
         Object rowData[] = new Object[11];
         for (int i = 0; i < listaEmpleados.size(); i++) {
@@ -219,42 +219,6 @@ public class PrincipalFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                inicializar();
-                new PrincipalFrame().setVisible(true);
-            }
-        });
-    }
-
     public static void inicializar() {
 
         EmployeeEntity uno = new EmployeeEntity();
@@ -264,17 +228,16 @@ public class PrincipalFrame extends javax.swing.JFrame {
         PositionEntity Chef = new PositionEntity();
         PositionEntity Janitor = new PositionEntity();
         PositionEntity Dishwasher = new PositionEntity();
-        
+
         Chef.setNombre("Head Chef");
         Chef.setSueldo(2000000);
-        
+
         Janitor.setNombre("Conserje");
         Janitor.setSueldo(1000000);
-        
+
         Dishwasher.setNombre("Lava Platos");
         Dishwasher.setSueldo(800000);
-        
-                
+
         uno.setARL("1020");
         uno.setActivo(true);
         uno.setApellido("CHAVES");

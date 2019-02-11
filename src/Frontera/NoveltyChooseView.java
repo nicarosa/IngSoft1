@@ -10,8 +10,10 @@ package Frontera;
  * @author Nicolas
  */
 public class NoveltyChooseView extends javax.swing.JPanel {
-private NoveltyView aumento = new NoveltyView();
-private NoveltyDecreaseView disminucion = new NoveltyDecreaseView();
+
+    private NoveltyView aumento = new NoveltyView();
+    private NoveltyDecreaseView disminucion = new NoveltyDecreaseView();
+
     /**
      * Creates new form elegirTipoNovedad
      */
@@ -63,17 +65,17 @@ private NoveltyDecreaseView disminucion = new NoveltyDecreaseView();
     }// </editor-fold>//GEN-END:initComponents
 
     private void aumentoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aumentoBActionPerformed
-      this.setVisible(false);
-      this.removeAll();
-      this.add(aumento);
-      this.setVisible(true);   
+        this.setVisible(false);
+        this.removeAll();
+        this.add(aumento);
+        this.setVisible(true);
     }//GEN-LAST:event_aumentoBActionPerformed
 
     private void disminucionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disminucionBActionPerformed
-      this.setVisible(false);
-      this.removeAll();
-      this.add(disminucion);
-      this.setVisible(true);   
+        this.setVisible(false);
+        this.removeAll();
+        this.add(disminucion);
+        this.setVisible(true);
     }//GEN-LAST:event_disminucionBActionPerformed
 
 

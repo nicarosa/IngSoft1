@@ -92,17 +92,16 @@ public class RemoveView extends javax.swing.JPanel {
         double Salario = 0;
         Retirado = PrincipalFrame.listaEmpleados.getEmpleado(RetirarId);
         if (Retirado == null) {
-            JOptionPane.showMessageDialog(null,"No existe el empleado");
-            
-        }else{
+            JOptionPane.showMessageDialog(null, "No existe el empleado");
+
+        } else {
             RemoveControl r = new RemoveControl();
-            int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado "+Retirado.getNombre()+" "+Retirado.getApellido());
-            if(descicion == JOptionPane.YES_OPTION){
+            int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado " + Retirado.getNombre() + " " + Retirado.getApellido());
+            if (descicion == JOptionPane.YES_OPTION) {
                 Salario = r.RemoveEmployee(Retirado);
-        JOptionPane.showMessageDialog(null,"El empleado ha sido retirado y su liquidacion es de: "+Salario+" $");
+                JOptionPane.showMessageDialog(null, "El empleado ha sido retirado y su liquidacion es de: " + Salario + " $");
             }
-    
-        
+
         }
 
 

@@ -10,6 +10,5 @@ package Control;
  * @author USUARIO
  */
 public class SelectControl {
-    
-    
+
 }

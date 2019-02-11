@@ -12,49 +12,49 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class EmployeesList {
-    private static ArrayList <EmployeeEntity> listaEmpleados;
 
-
+    private static ArrayList<EmployeeEntity> listaEmpleados;
 
     public EmployeesList() {
-       this.listaEmpleados = new ArrayList<EmployeeEntity>();
+        this.listaEmpleados = new ArrayList<EmployeeEntity>();
     }
-    
-    public void AñadirEmpleado (EmployeeEntity emp){
+
+    public void AñadirEmpleado(EmployeeEntity emp) {
         this.listaEmpleados.add(emp);
     }
-    
-    public EmployeeEntity sacar(int indice){
-        EmployeeEntity aux = new EmployeeEntity();    
-            aux = listaEmpleados.get(indice);
+
+    public EmployeeEntity sacar(int indice) {
+        EmployeeEntity aux = new EmployeeEntity();
+        aux = listaEmpleados.get(indice);
         return aux;
     }
-    
-    public static EmployeeEntity getEmpleado(String id){
-       EmployeeEntity aux = new EmployeeEntity();
-       for(int i=0;i < listaEmpleados.size();i++){
-           if(id.equals(listaEmpleados.get(i).getId())){
-             
-               aux= listaEmpleados.get(i);
-               break;
-           }
-           else{
-               aux = null;
-           }
-       }
-       return aux;
+
+    public EmployeeEntity getEmpleado(String id) {
+        EmployeeEntity aux = new EmployeeEntity();
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            if (id.equals(listaEmpleados.get(i).getId())) {
+
+                aux = listaEmpleados.get(i);
+                break;
+            } else {
+                aux = null;
+            }
+        }
+        return aux;
     }
-    public static void retirarEmpleado(String id){
-       EmployeeEntity aux = new EmployeeEntity();
-       for(int i=0;i < listaEmpleados.size();i++){
-           if(id.equals(listaEmpleados.get(i).getId())){
-             
-               listaEmpleados.remove(i);
-           }
-           
-       } 
+
+    public void retirarEmpleado(String id) {
+        EmployeeEntity aux = new EmployeeEntity();
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            if (id.equals(listaEmpleados.get(i).getId())) {
+
+                listaEmpleados.remove(i);
+            }
+
+        }
     }
-    public int size(){
+
+    public int size() {
         return listaEmpleados.size();
     }
 }

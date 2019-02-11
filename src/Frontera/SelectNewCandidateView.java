@@ -13,8 +13,9 @@ import javax.swing.JPanel;
  * @author Nicolas
  */
 public class SelectNewCandidateView extends javax.swing.JPanel {
-        
+
     private JPanel ParentPanel;
+
     /**
      * Creates new form nuevoCan
      */
@@ -298,31 +299,30 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-       javax.swing.SwingUtilities.invokeLater(() -> {
-           mensaje.setVisible(true);
-           this.revalidate();
-           this.repaint();
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            mensaje.setVisible(true);
+            this.revalidate();
+            this.repaint();
         });
-       mensaje.setVisible(true);
-       CandidateEntity candidato = new CandidateEntity();
-       candidato.setId(idTF.getText());
-       candidato.setNombre(nombretf.getText());
-       candidato.setApellido(apellidoTF.getText());
-       candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
-       candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
-       candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
-       candidato.setExperiencia(Integer.parseInt(ExperienciaTF.getText()));
-       
-       
-       //Hace falta hacer el método en el controlador que coloque esto, esto es por default
-       candidato.setAptitud(90.9);
-       //Este campo no está en la lista, toca añadirlo
-       candidato.setSalario_proyectado(1000.0);
-       
-       PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);       
-       System.out.print(PrincipalFrame.listaCandidatos.getCandidato(idTF.getText()).toString());
-       
-             
+        mensaje.setVisible(true);
+        CandidateEntity candidato = new CandidateEntity();
+        candidato.setId(idTF.getText());
+        candidato.setNombre(nombretf.getText());
+        candidato.setApellido(apellidoTF.getText());
+        candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
+        candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
+        candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
+        candidato.setExperiencia(Integer.parseInt(ExperienciaTF.getText()));
+
+        //Hace falta hacer el método en el controlador que coloque esto, esto es por default
+        candidato.setAptitud(90.9);
+        //Este campo no está en la lista, toca añadirlo
+        candidato.setSalario_proyectado(1000.0);
+
+        PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
+        System.out.print(PrincipalFrame.listaCandidatos.getCandidato(idTF.getText()).toString());
+
+
     }//GEN-LAST:event_guardarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed

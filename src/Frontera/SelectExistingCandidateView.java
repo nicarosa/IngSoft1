@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * @author Nicolas
  */
 public class SelectExistingCandidateView extends javax.swing.JPanel {
-    
+
     private HireCandidateView contratar = new HireCandidateView();
     private JPanel ParentPanel;
 
@@ -27,7 +27,7 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
         initComponents();
         candidatosTB.setModel(new CandidatesTableModel(PrincipalFrame.listaCandidatos));
     }
-    
+
     private void ActualizarGUI(JComponent component1, JComponent component2) {
         component1.removeAll();
         component1.add(component2);

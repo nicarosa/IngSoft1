@@ -9,7 +9,8 @@ package Entidad;
  *
  * @author USUARIO
  */
-public class EmployeeEntity extends PersonEntity{
+public class EmployeeEntity extends PersonEntity {
+
     private String ARL;
     private String EPS;
     private PositionEntity cargo;
@@ -17,15 +18,13 @@ public class EmployeeEntity extends PersonEntity{
     private double cesantias;
     private int contactoDeEmergencia;
     private String direccion;
-    private boolean activo;     
+    private boolean activo;
     private NoveltyEntity novedades;
-
 
     public EmployeeEntity() {
         novedades = new NoveltyEntity();
         cargo = new PositionEntity();
     }
-    
 
     public String getARL() {
         return ARL;
@@ -52,8 +51,7 @@ public class EmployeeEntity extends PersonEntity{
     }
 
     public double getCesantias() {
-        
-        
+
         return calcularCesantias();
     }
 
@@ -100,20 +98,17 @@ public class EmployeeEntity extends PersonEntity{
     public void setNovedades(NoveltyEntity novedades) {
         this.novedades = novedades;
     }
-    
-    public double calcularCesantias(){
-       
-    setCesantias(((((getNovedades().getHorasTrabajadas())/8)*(getCargo().getSueldo()))/360));
 
-    return this.cesantias;
+    public double calcularCesantias() {
+
+        setCesantias(((((getNovedades().getHorasTrabajadas()) / 8) * (getCargo().getSueldo())) / 360));
+
+        return this.cesantias;
     }
 
-    
     @Override
     public String toString() {
-        return super.toString() + " " + ARL + " " + EPS + " " + pensiones + " " + cesantias + " " + contactoDeEmergencia + " " + direccion; 
+        return super.toString() + " " + ARL + " " + EPS + " " + pensiones + " " + cesantias + " " + contactoDeEmergencia + " " + direccion;
     }
 
- 
-    
 }

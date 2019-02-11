@@ -10,6 +10,7 @@ package Entidad;
  * @author USUARIO
  */
 public class CompanyEntity {
+
     private int NumeroDeEmpleados;
     private String RazonSocial;
     private String NIT;
@@ -49,6 +50,5 @@ public class CompanyEntity {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
-    
-    
+
 }

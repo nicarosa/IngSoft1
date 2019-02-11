@@ -13,17 +13,17 @@ import javax.swing.JPanel;
  * @author Nicolas
  */
 public class SelectView extends javax.swing.JPanel {
-    
+
     private JPanel ParentPanel;
 
     private SelectView2 select;
-     
+
     public SelectView(JPanel panel) {
         ParentPanel = panel;
         select = new SelectView2(ParentPanel);
         initComponents();
     }
-    
+
     private void ActualizarGUI(JComponent component1, JComponent component2) {
         component1.removeAll();
         component1.add(component2);

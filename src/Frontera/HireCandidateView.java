@@ -12,6 +12,7 @@ import Entidad.CandidateEntity;
  * @author Nicolas
  */
 public class HireCandidateView extends javax.swing.JPanel {
+
     /**
      * Creates new form nuevoCan
      */
@@ -280,7 +281,7 @@ public class HireCandidateView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-       mensaje.setVisible(true);       
+        mensaje.setVisible(true);
     }//GEN-LAST:event_guardarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed

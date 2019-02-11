@@ -10,5 +10,5 @@ package Control;
  * @author USUARIO
  */
 public class RosterControl {
-    
+
 }

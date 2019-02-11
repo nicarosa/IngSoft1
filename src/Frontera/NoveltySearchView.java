@@ -8,14 +8,17 @@ package Frontera;
 import Entidad.EmployeeEntity;
 import java.awt.GridBagConstraints;
 import java.awt.Label;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Nicolas
  */
 public class NoveltySearchView extends javax.swing.JPanel {
+
     private NoveltyChooseView elegirN = new NoveltyChooseView();
     private static EmployeeEntity aux = new EmployeeEntity();
+
     /**
      * Creates new form buscarEmpleadoNovedad
      */
@@ -78,22 +81,23 @@ public class NoveltySearchView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
-    
-    
-    String documento = this.documentoTF.getText();
-    aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
 
-    if (aux != null){
-        jLabel1.setVisible(false);
-        jLabel1.removeAll();
-        this.setVisible(false);
-        this.removeAll();
-        this.add(elegirN);
-        this.setVisible(true);
-    
-    }
-    
-    
+        String documento = this.documentoTF.getText();
+        aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
+
+        if (aux != null) {
+            jLabel1.setVisible(false);
+            jLabel1.removeAll();
+            this.setVisible(false);
+            this.removeAll();
+            this.add(elegirN);
+            this.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No existe el empleado");
+        }
+
+
     }//GEN-LAST:event_buscarBActionPerformed
 
     private void documentoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoTFActionPerformed

@@ -12,7 +12,7 @@ import Entidad.EmployeeEntity;
  * @author Nicolas
  */
 public class NoveltyDecreaseView extends javax.swing.JPanel {
-    
+
     /**
      * Creates new form disminucionP
      */
@@ -120,36 +120,36 @@ public class NoveltyDecreaseView extends javax.swing.JPanel {
     }//GEN-LAST:event_novedadesCBActionPerformed
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
-       EmployeeEntity aux = NoveltySearchView.getAux();
-        switch (novedadesCB.getSelectedIndex()){
+        EmployeeEntity aux = NoveltySearchView.getAux();
+        switch (novedadesCB.getSelectedIndex()) {
             case 0:
-                aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad()+
-                        Integer.parseInt(cantidadTF.getText()));
+                aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad()
+                        + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 1:
-                aux.getNovedades().setFaltas(aux.getNovedades().getFaltas()+
-                        Integer.parseInt(cantidadTF.getText()));
+                aux.getNovedades().setFaltas(aux.getNovedades().getFaltas()
+                        + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 2:
-                aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto()+
-                        Integer.parseInt(cantidadTF.getText()));                
-                break;            
-            case 3:    
-                aux.getNovedades().setVacaciones(aux.getNovedades().getVacaciones()+
-                        Integer.parseInt(cantidadTF.getText()));
+                aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto()
+                        + Integer.parseInt(cantidadTF.getText()));
+                break;
+            case 3:
+                aux.getNovedades().setDiasDeVacaciones(aux.getNovedades().getDiasDeVacaciones()
+                        + Integer.parseInt(cantidadTF.getText()));
                 break;
         }
         PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());
-        
+
         confirmLB.setVisible(true);
     }//GEN-LAST:event_aceptarBActionPerformed
 
     private void cancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBActionPerformed
         this.setVisible(false);
-        this.removeAll();  
+        this.removeAll();
     }//GEN-LAST:event_cancelarBActionPerformed
 
 

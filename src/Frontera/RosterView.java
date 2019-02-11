@@ -24,8 +24,6 @@ public class RosterView extends javax.swing.JPanel {
         initComponents();
     }
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,21 +96,21 @@ public class RosterView extends javax.swing.JPanel {
     }//GEN-LAST:event_buscarTFActionPerformed
 
     private void buscarTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarTFKeyPressed
-       
+
     }//GEN-LAST:event_buscarTFKeyPressed
 
     private void buscarTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarTFKeyReleased
-        String query= buscarTF.getText().toLowerCase();
-        
+        String query = buscarTF.getText().toLowerCase();
+
         filter(query);
     }//GEN-LAST:event_buscarTFKeyReleased
-private void filter(String query){
-    DefaultTableModel model = (DefaultTableModel) RosterView.listaT.getModel();
-    TableRowSorter<DefaultTableModel> sort = new TableRowSorter<DefaultTableModel>(model);
-    listaT.setRowSorter(sort);
-    
-    sort.setRowFilter(RowFilter.regexFilter(query));
-}
+    private void filter(String query) {
+        DefaultTableModel model = (DefaultTableModel) RosterView.listaT.getModel();
+        TableRowSorter<DefaultTableModel> sort = new TableRowSorter<DefaultTableModel>(model);
+        listaT.setRowSorter(sort);
+
+        sort.setRowFilter(RowFilter.regexFilter(query));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField buscarTF;
@@ -121,4 +119,3 @@ private void filter(String query){
     public static javax.swing.JTable listaT;
     // End of variables declaration//GEN-END:variables
 }
-

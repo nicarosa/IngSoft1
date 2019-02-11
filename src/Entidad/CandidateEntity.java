@@ -10,6 +10,7 @@ package Entidad;
  * @author USUARIO
  */
 public class CandidateEntity extends PersonEntity {
+
     private String nivelDeEstudios;
     private String profesion;
     private String universidad;
@@ -70,8 +71,7 @@ public class CandidateEntity extends PersonEntity {
 
     @Override
     public String toString() {
-        return super.toString()+" " + this.nivelDeEstudios +" "+this.profesion+" "+this.universidad+" "+ experiencia; 
+        return super.toString() + " " + this.nivelDeEstudios + " " + this.profesion + " " + this.universidad + " " + experiencia;
     }
-    
-    
+
 }
