@@ -26,8 +26,8 @@ public class CalculateSalaryControl {
             double bonus = (double)aux.getNovedades().getBonos();
             double faltas = ((double)aux.getNovedades().getFaltas()*(salarioBase*2.75));
             double vacacionesIncapacidad = 0;
-            if((aux.getNovedades().getVacaciones()) + (aux.getNovedades().getIncapacidad()) > 3){
-                vacacionesIncapacidad = ((double)((aux.getNovedades().getVacaciones()) + (aux.getNovedades().getIncapacidad()))*(0.25));
+            if((aux.getNovedades().getDiasDeVacaciones()) + (aux.getNovedades().getIncapacidad()) > 3){
+                vacacionesIncapacidad = ((double)((aux.getNovedades().getDiasDeVacaciones()) + (aux.getNovedades().getIncapacidad()))*(0.25));
             }
             sueldoFinal = sbMenosSalud + horasNocturnas + horasDominicales + horasExtra + bonus - faltas -vacacionesIncapacidad;
         }

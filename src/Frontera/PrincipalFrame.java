@@ -285,7 +285,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setId("1030685411");
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
-        uno.getNovedades().setHorasTrabajadas(2880);
+        uno.getNovedades().setHorasTrabajadas(1440);
         uno.setCargo(Dishwasher);
 
         dos.setARL("1030");

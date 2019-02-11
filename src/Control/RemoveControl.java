@@ -23,13 +23,23 @@ public class RemoveControl {
     }
     
     public static double Liquidar (EmployeeEntity em){
-        double liquidacion =em.getCesantias() ;
+        double liquidacion =0;
         //2.1
- 
-        //2.2 2,3
-        liquidacion+=((em.getCesantias()*(em.getNovedades().getHorasTrabajadas()/8)*0.12)/360);
-
+       liquidacion+=(((em.getNovedades().getDiasSinPrima()/8)*em.getCargo().getSueldo())/360);
+        System.out.println(em.getNovedades().getDiasSinPrima());
         
+        //2.2 
+        liquidacion+=em.getCesantias();
+     
+        //2,3
+       
+        liquidacion+=((em.getCesantias()*(em.getNovedades().getHorasTrabajadas()/8)*0.12)/360);
+          System.out.println(liquidacion);
+        //2,4
+        liquidacion+=(em.getCargo().getSueldo()*em.getNovedades().getHorasSinVacaciones()/8)/720;
+        
+
+      
     return liquidacion;
     }
     

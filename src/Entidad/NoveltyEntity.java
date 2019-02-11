@@ -11,7 +11,6 @@ package Entidad;
  */
 public class NoveltyEntity {
 
-   
     private int horasTrabajadas;
     private int horasExtra;
     private int horasNocturnas;
@@ -19,29 +18,67 @@ public class NoveltyEntity {
     private int bonos;
     private int incapacidad;//en dias mayor a 3 
     private int faltas;//en dias
-    private int adelanto; 
-    private int vacaciones; //en dias
-    
-     public int getHorasTrabajadas() {
+    private int adelanto;
+    private int HorasSinVacaciones; //en dias
+    private int HorasSinPrimaSemestral;
+    private int DiasDeVacaciones;
+
+    public int getDiasDeVacaciones() {
+        return DiasDeVacaciones;
+    }
+
+    public void setDiasDeVacaciones(int DiasDeVacaciones) {
+        this.DiasDeVacaciones = DiasDeVacaciones;
+    }
+
+    public NoveltyEntity() {
+        HorasSinVacaciones = 0;
+        HorasSinPrimaSemestral = 0;
+        DiasDeVacaciones = 15;
+    }
+
+    public int getHorasSinVacaciones() {
+        return HorasSinVacaciones;
+    }
+
+    public void setHorasSinVacaciones(int DiasSinVacaciones) {
+        this.HorasSinVacaciones = DiasSinVacaciones;
+    }
+
+    public int getDiasSinPrima() {
+        return HorasSinPrimaSemestral;
+    }
+
+    public void setDiasSinPrima(int DiasSinPrima) {
+        this.HorasSinPrimaSemestral = DiasSinPrima;
+    }
+
+    public int getHorasTrabajadas() {
         return horasTrabajadas;
     }
 
     public void setHorasTrabajadas(int horasTrabajadas) {
+
+        this.HorasSinVacaciones += (horasTrabajadas - this.horasTrabajadas);
+        this.HorasSinPrimaSemestral += (horasTrabajadas - this.horasTrabajadas);
         this.horasTrabajadas = horasTrabajadas;
+        if (this.HorasSinPrimaSemestral >= 1440) {
+            while(HorasSinPrimaSemestral>1440) {
+                DarPrimaSemestral();
+            }
+            
+        }
+
     }
 
-    public NoveltyEntity() {
+    public void DarVacaciones() {
+        this.HorasSinVacaciones = 0;
     }
 
-    public int getVacaciones() {
-        return vacaciones;
+    public void DarPrimaSemestral() {
+        this.HorasSinPrimaSemestral -= 1440;
     }
 
-    public void setVacaciones(int vacaciones) {
-        this.vacaciones = vacaciones;
-    }
-
-    
     public int getHorasExtra() {
         return horasExtra;
     }
@@ -102,9 +139,8 @@ public class NoveltyEntity {
     public String toString() {
         return "Horas Nocturas :" + this.horasNocturnas + "Horas Dominicales :"
                 + this.horasDominicales + "Bonificaciones :" + this.bonos + "Horas Extra :" + this.horasExtra
-                + "Incapacidad :" + this.incapacidad + "Faltas :" + this.faltas + "Adelantos :" + this.adelanto +
-                "Vacaciones :" + this.vacaciones;        
+                + "Incapacidad :" + this.incapacidad + "Faltas :" + this.faltas + "Adelantos :" + this.adelanto
+                + "Vacaciones :" + this.HorasSinVacaciones;
     }
-    
-    
+
 }
