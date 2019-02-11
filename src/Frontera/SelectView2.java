@@ -13,11 +13,12 @@ import javax.swing.JPanel;
  * @author Nicolas
  */
 public class SelectView2 extends javax.swing.JPanel {
-    
-private SelectNewCandidateView candidato;
-private SelectExistingCandidateView candidatos;
 
-private JPanel ParentPanel;
+    private SelectNewCandidateView candidato;
+    private SelectExistingCandidateView candidatos;
+
+    private JPanel ParentPanel;
+
     /**
      * Creates new form seleccionE
      */
@@ -27,7 +28,7 @@ private JPanel ParentPanel;
         candidatos = new SelectExistingCandidateView(ParentPanel);
         initComponents();
     }
-    
+
     private void ActualizarGUI(JComponent component1, JComponent component2) {
         component1.removeAll();
         component1.add(component2);
@@ -79,7 +80,7 @@ private JPanel ParentPanel;
     }// </editor-fold>//GEN-END:initComponents
 
     private void nuevopBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevopBActionPerformed
-        javax.swing.SwingUtilities.invokeLater(() ->ActualizarGUI(ParentPanel, candidato));
+        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, candidato));
     }//GEN-LAST:event_nuevopBActionPerformed
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
