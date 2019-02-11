@@ -10,6 +10,7 @@ import Control.RemoveControl;
 import Entidad.EmployeeEntity;
 import Entidad.EmployeesList;
 import javax.swing.JOptionPane;
+import sun.reflect.generics.visitor.Reifier;
 
 /**
  *
@@ -95,13 +96,18 @@ public class RemoveView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No existe el empleado");
 
         } else {
-            RemoveControl r = new RemoveControl();
-            int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado " + Retirado.getNombre() + " " + Retirado.getApellido());
-            if (descicion == JOptionPane.YES_OPTION) {
-                Salario = r.RemoveEmployee(Retirado);
-                JOptionPane.showMessageDialog(null, "El empleado ha sido retirado y su liquidacion es de: " + Salario + " $");
-            }
+            if (Retirado.isActivo()) {
+                RemoveControl r = new RemoveControl();
+                int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado " + Retirado.getNombre() + " " + Retirado.getApellido());
+                if (descicion == JOptionPane.YES_OPTION) {
+                    Salario = r.RemoveEmployee(Retirado);
+                    JOptionPane.showMessageDialog(null, "El empleado ha sido retirado y su liquidacion es de: " + Salario + " $");
 
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "el empleado ya no esta activo");
+
+            }
         }
 
 

@@ -18,7 +18,7 @@ public class RemoveControl {
 
         double Monto;
         Monto = Liquidar(aux);
-        Frontera.PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
+        Frontera.PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).setActivo(false);
         return Monto;
     }
 

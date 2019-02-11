@@ -25,6 +25,7 @@ public class EmployeeEntity extends PersonEntity {
         novedades = new NoveltyEntity();
         cargo = new PositionEntity();
     }
+    
 
     public String getARL() {
         return ARL;

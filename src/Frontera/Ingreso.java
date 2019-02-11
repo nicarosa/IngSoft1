@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package frontera;
+package Frontera;
 
 import Control.ValidarLogin;
 import Entidad.Usuario;
-import Frontera.PrincipalFrame;
 import javax.swing.JOptionPane;
 
 /**

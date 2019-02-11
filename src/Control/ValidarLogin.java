@@ -7,7 +7,7 @@ package Control;
 
 import Entidad.Sistema;
 import Entidad.Usuario;
-import static frontera.LoginFrame.sistema;
+import static Frontera.LoginFrame.sistema;
 
 /**
  *

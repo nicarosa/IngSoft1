@@ -16,6 +16,7 @@ public class SelectView2 extends javax.swing.JPanel {
 
     private SelectNewCandidateView candidato;
     private SelectExistingCandidateView candidatos;
+    private NuevoEmpleadoView empleado;
 
     private JPanel ParentPanel;
 
@@ -26,6 +27,7 @@ public class SelectView2 extends javax.swing.JPanel {
         ParentPanel = panel;
         candidato = new SelectNewCandidateView(ParentPanel);
         candidatos = new SelectExistingCandidateView(ParentPanel);
+        empleado = new NuevoEmpleadoView(panel);
         initComponents();
     }
 
@@ -46,24 +48,25 @@ public class SelectView2 extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        nuevopB = new javax.swing.JButton();
+        NuevoEmpleado = new javax.swing.JButton();
         buscarB = new javax.swing.JButton();
+        nuevopB1 = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
-        nuevopB.setText("Nuevo perfil de candidato");
-        nuevopB.addActionListener(new java.awt.event.ActionListener() {
+        NuevoEmpleado.setText("Nuevo Empleado");
+        NuevoEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevopBActionPerformed(evt);
+                NuevoEmpleadoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 78;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(86, 100, 0, 109);
-        add(nuevopB, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(50, 100, 61, 109);
+        add(NuevoEmpleado, gridBagConstraints);
 
         buscarB.setText("Buscar en candidatos registrados");
         buscarB.addActionListener(new java.awt.event.ActionListener() {
@@ -75,21 +78,41 @@ public class SelectView2 extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(70, 100, 98, 109);
+        gridBagConstraints.insets = new java.awt.Insets(48, 100, 0, 109);
         add(buscarB, gridBagConstraints);
+
+        nuevopB1.setText("Nuevo perfil de candidato");
+        nuevopB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevopB1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(72, 100, 0, 109);
+        add(nuevopB1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nuevopBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevopBActionPerformed
-        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, candidato));
-    }//GEN-LAST:event_nuevopBActionPerformed
+    private void NuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoEmpleadoActionPerformed
+        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, empleado));    
+    }//GEN-LAST:event_NuevoEmpleadoActionPerformed
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
         javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, candidatos));
     }//GEN-LAST:event_buscarBActionPerformed
 
+    private void nuevopB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevopB1ActionPerformed
+            javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, candidato));
+    
+    }//GEN-LAST:event_nuevopB1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton NuevoEmpleado;
     private javax.swing.JButton buscarB;
-    private javax.swing.JButton nuevopB;
+    private javax.swing.JButton nuevopB1;
     // End of variables declaration//GEN-END:variables
 }
