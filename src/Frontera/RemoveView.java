@@ -90,14 +90,15 @@ public class RemoveView extends javax.swing.JPanel {
         String RetirarId = buscarTF.getText();
         EmployeeEntity Retirado = new EmployeeEntity();
         double Salario = 0;
-        Retirado = Entidad.EmployeesList.getEmpleado(RetirarId);
+        Retirado = PrincipalFrame.listaEmpleados.getEmpleado(RetirarId);
         if (Retirado == null) {
             JOptionPane.showMessageDialog(null,"No existe el empleado");
             
         }else{
+            RemoveControl r = new RemoveControl();
             int descicion = JOptionPane.showConfirmDialog(null, "Seguro descea retirar al empleado "+Retirado.getNombre()+" "+Retirado.getApellido());
             if(descicion == JOptionPane.YES_OPTION){
-                Salario = RemoveControl.RemoveEmployee(Retirado);
+                Salario = r.RemoveEmployee(Retirado);
         JOptionPane.showMessageDialog(null,"El empleado ha sido retirado y su liquidacion es de: "+Salario+" $");
             }
     
