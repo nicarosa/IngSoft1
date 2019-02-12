@@ -371,8 +371,7 @@ public class LoginTest {
         double salario=1024000.0;
  
          RemoveControl r = new RemoveControl();
-         
-        assertEquals( r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411")),salario);
+         assertEquals((long)r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411")),(long) salario);
         
     }
     
@@ -380,9 +379,10 @@ public class LoginTest {
     public void testRetiroEmpleadoInactivo(){
         RemoveControl r = new RemoveControl();
         double retirado=-1;
+        listaEmpleados.getEmpleado("1030685411").setActivo(false);
         r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411"));
         
-         assertEquals( r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411")),-1);
+         assertEquals( (long)r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411")),-1);
     }
     
     /*@Test

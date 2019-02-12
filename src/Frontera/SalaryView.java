@@ -44,7 +44,7 @@ public class SalaryView extends javax.swing.JPanel {
 
         jLabel2.setText("Calcular Salario");
 
-        jButton1.setText("Retirar");
+        jButton1.setText("Calcular");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -99,7 +99,11 @@ public class SalaryView extends javax.swing.JPanel {
             if (aux.isActivo()) {
                 CalculateSalaryControl c = new CalculateSalaryControl();
                 Salario = c.calcular(buscarTF.getText());
-                JOptionPane.showMessageDialog(null, "el salario");
+                JOptionPane.showMessageDialog(null, "el salario del empleado "
+                + aux.getNombre() + " " + aux.getApellido() + " es: " + Salario);
+                aux.getNovedades().reset();
+                PrincipalFrame.listaEmpleados.retirarEmpleado(RetirarId);
+                PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
             } else {
                 JOptionPane.showMessageDialog(null, "el empleado ya no esta activo");
 
