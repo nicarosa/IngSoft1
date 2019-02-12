@@ -72,6 +72,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         retirarB = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         listarB = new javax.swing.JButton();
+        SalarioB = new javax.swing.JButton();
         panelPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,6 +124,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(listarB);
+
+        SalarioB.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        SalarioB.setText("Calcular Salario Empleado");
+        SalarioB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalarioBActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(SalarioB);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -216,6 +226,15 @@ public class PrincipalFrame extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_contratacionBActionPerformed
 
+    private void SalarioBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalarioBActionPerformed
+        SalaryView salario = new SalaryView();
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            ActualizarGUI(panelPrincipal, salario);
+            paintButtonActive(SalarioB);
+            addRowtoJtable();
+        });
+    }//GEN-LAST:event_SalarioBActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -285,6 +304,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SalarioB;
     private javax.swing.JButton contratacionB;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar.Separator jSeparator1;

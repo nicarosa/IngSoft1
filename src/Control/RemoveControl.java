@@ -16,9 +16,11 @@ public class RemoveControl {
 
     public double RemoveEmployee(EmployeeEntity aux) {
 
-        double Monto;
+        double Monto = -1;
+        if(aux.isActivo()){
         Monto = Liquidar(aux);
         Frontera.PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).setActivo(false);
+        }
         return Monto;
     }
 
