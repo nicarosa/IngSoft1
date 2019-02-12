@@ -467,5 +467,21 @@ public class LoginTest {
         assertEquals((long)c.calcular("1019146963"), (long)salario);
     }
     
-
+    @Test
+    public void testRetiroEmpleadoinexistente(){
+        EmployeeEntity aux = new EmployeeEntity();
+        RemoveControl r = new RemoveControl();
+        aux.setId("749173821");
+        aux.setNombre("maria");
+        aux.setApellido("garzon");
+        aux.setARL("sura");
+        aux.setEdad(20);
+        aux.setEPS("compensar");
+        aux.setContactoDeEmergencia(313534964);
+        aux.setDireccion("calle80 #60-30");
+        aux.setActivo(true);
+        
+        
+        assertEquals( (long)r.RemoveEmployee(aux),-2);
+    }
 }
