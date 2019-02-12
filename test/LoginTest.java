@@ -429,8 +429,14 @@ public class LoginTest {
         TableRowSorter<DefaultTableModel> sort = new TableRowSorter<DefaultTableModel>(model);
         tabla.setRowSorter(sort);
         String query = "1030685411";
+        String query2 = "1013647467";
+        String query3 = "1019146963";
         sort.setRowFilter(RowFilter.regexFilter(query));
-        assertEquals(query,model.getValueAt(0,2).toString() );     
+        assertEquals(query,model.getValueAt(0,2).toString() );
+        sort.setRowFilter(RowFilter.regexFilter(query));
+        assertEquals(query2,model.getValueAt(1,2).toString() );
+        sort.setRowFilter(RowFilter.regexFilter(query));
+        assertEquals(query3,model.getValueAt(2,2).toString() );
     }  
     
     @Test
