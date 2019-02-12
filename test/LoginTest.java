@@ -12,7 +12,13 @@ import Entidad.Usuario;
 import static Frontera.LoginFrame.sistema;
 import static Frontera.PrincipalFrame.listaCandidatos;
 import static Frontera.PrincipalFrame.listaEmpleados;
+import Frontera.RosterView;
+import static Frontera.RosterView.listaT;
 import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -36,6 +42,8 @@ public class LoginTest {
     
     public LoginTest() {
     }
+    
+    
     
     @BeforeClass
     public static void setUpClass() {
@@ -363,4 +371,68 @@ public class LoginTest {
         assertEquals(listaEmpleados.getEmpleado("749173821"), aux);
     }
     
+    @Test
+    public void testTablaLista(){
+        JTable tabla = new JTable();
+        
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+        model.setColumnCount(11);
+        Object rowData[] = new Object[11];
+        
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            rowData[0] = listaEmpleados.sacar(i).getNombre();
+            rowData[1] = listaEmpleados.sacar(i).getApellido();
+            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[3] = listaEmpleados.sacar(i).getEdad();
+            rowData[4] = listaEmpleados.sacar(i).getARL();
+            rowData[5] = listaEmpleados.sacar(i).getEPS();
+            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.sacar(i).getDireccion();
+            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            model.addRow(rowData);
+        }
+        for (int count = 0; count < model.getRowCount(); count++){
+ 
+        assertEquals(listaEmpleados.sacar(count).getNombre(),model.getValueAt(count,0).toString() );
+        }
+    }
+    
+    private void filter(String query) {
+        
+    }
+    
+    
+    
+    @Test
+    public void testTablaSort(){
+        
+        
+        JTable tabla = new JTable();
+        
+        DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+        model.setColumnCount(11);
+        Object rowData[] = new Object[11];
+        
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            rowData[0] = listaEmpleados.sacar(i).getNombre();
+            rowData[1] = listaEmpleados.sacar(i).getApellido();
+            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[3] = listaEmpleados.sacar(i).getEdad();
+            rowData[4] = listaEmpleados.sacar(i).getARL();
+            rowData[5] = listaEmpleados.sacar(i).getEPS();
+            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.sacar(i).getDireccion();
+            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            model.addRow(rowData);
+        }
+        TableRowSorter<DefaultTableModel> sort = new TableRowSorter<DefaultTableModel>(model);
+        tabla.setRowSorter(sort);
+        String query = "1030685411";
+        sort.setRowFilter(RowFilter.regexFilter(query));
+        assertEquals(query,model.getValueAt(0,2).toString() );     
+    }  
 }
