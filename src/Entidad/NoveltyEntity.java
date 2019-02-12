@@ -11,17 +11,17 @@ package Entidad;
  */
 public class NoveltyEntity {
 
-    private int horasTrabajadas;
-    private int horasExtra;
-    private int horasNocturnas;
-    private int horasDominicales;
-    private int bonos;
-    private int incapacidad;//en dias mayor a 3 
-    private int faltas;//en dias
-    private int adelanto;
-    private int HorasSinVacaciones; //en dias
-    private int HorasSinPrimaSemestral;
-    private int DiasDeVacaciones;
+    private int horasTrabajadas = 0;
+    private int horasExtra =0;
+    private int horasNocturnas = 0;
+    private int horasDominicales = 0;
+    private int bonos = 0;
+    private int incapacidad = 0;//en dias mayor a 3 
+    private int faltas = 0;//en dias
+    private int adelanto = 0;
+    private int HorasSinVacaciones = 0; //en dias
+    private int HorasSinPrimaSemestral = 0;
+    private int DiasDeVacaciones = 0;
 
     public int getDiasDeVacaciones() {
         return DiasDeVacaciones;
@@ -32,9 +32,7 @@ public class NoveltyEntity {
     }
 
     public NoveltyEntity() {
-        HorasSinVacaciones = 0;
-        HorasSinPrimaSemestral = 0;
-        DiasDeVacaciones = 0;
+        
     }
 
     public int getHorasSinVacaciones() {
@@ -135,6 +133,21 @@ public class NoveltyEntity {
         this.horasDominicales = horasDominicales;
     }
 
+    public void reset(){
+    this.horasTrabajadas = 0;
+    this.horasExtra =0;
+    this.horasNocturnas = 0;
+    this.horasDominicales = 0;
+    this.bonos = 0;
+    this.incapacidad = 0;//en dias mayor a 3 
+    this.faltas = 0;//en dias
+    this.adelanto = 0;
+    this.HorasSinVacaciones = 0; //en dias
+    this.HorasSinPrimaSemestral = 0;
+    this.DiasDeVacaciones = 0;
+
+    }
+    
     @Override
     public String toString() {
         return "Horas Nocturas :" + this.horasNocturnas + "Horas Dominicales :"
