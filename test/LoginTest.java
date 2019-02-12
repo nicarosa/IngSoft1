@@ -399,11 +399,6 @@ public class LoginTest {
         }
     }
     
-    private void filter(String query) {
-        
-    }
-    
-    
     
     @Test
     public void testTablaSort(){
