@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import Control.CalculateSalaryControl;
 import Control.RemoveControl;
 import Control.ValidarLogin;
 import Entidad.CandidateEntity;
@@ -431,7 +432,8 @@ public class LoginTest {
         sort.setRowFilter(RowFilter.regexFilter(query));
         assertEquals(query,model.getValueAt(0,2).toString() );     
     }  
-
+    
+    @Test
     public void testRetiroEmpleadoExitoso(){
         EmployeeEntity aux = new EmployeeEntity();
         
@@ -452,22 +454,12 @@ public class LoginTest {
          assertEquals( (long)r.RemoveEmployee(listaEmpleados.getEmpleado("1030685411")),-1);
     }
     
-    /*@Test
-    public void testNuevoEmpleado(){
-        EmployeeEntity aux = new EmployeeEntity();
-        aux.setId("749173821");
-        aux.setNombre("maria");
-        aux.setApellido("garzon");
-        aux.setARL("sura");
-        aux.setEdad(20);
-        aux.setEPS("compensar");
-        aux.setContactoDeEmergencia(313534964);
-        aux.setDireccion("calle80 #60-30");
-        aux.setActivo(true);
-        listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado("749173821"), aux);
+    @Test
+    public void testCalcularSalario(){
+        CalculateSalaryControl c = new CalculateSalaryControl();
+        double salario = c.calcular("1019146963");
+        assertEquals((long)c.calcular("1019146963"), (long)salario);
     }
-*/
     
 
 }
