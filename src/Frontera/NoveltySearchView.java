@@ -85,16 +85,20 @@ public class NoveltySearchView extends javax.swing.JPanel {
         String documento = this.documentoTF.getText();
         aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
 
-        if (aux != null) {
+        if (aux == null) {
+            JOptionPane.showMessageDialog(null, "No existe el empleado");
+        } else {
+            if(aux.isActivo()){
             jLabel1.setVisible(false);
             jLabel1.removeAll();
             this.setVisible(false);
             this.removeAll();
             this.add(elegirN);
-            this.setVisible(true);
-
-        } else {
-            JOptionPane.showMessageDialog(null, "No existe el empleado");
+            this.setVisible(true);    
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "el empleado no esta activo");
+            }
         }
 
 

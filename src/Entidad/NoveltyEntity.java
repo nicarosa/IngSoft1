@@ -34,7 +34,7 @@ public class NoveltyEntity {
     public NoveltyEntity() {
         HorasSinVacaciones = 0;
         HorasSinPrimaSemestral = 0;
-        DiasDeVacaciones = 15;
+        DiasDeVacaciones = 0;
     }
 
     public int getHorasSinVacaciones() {
