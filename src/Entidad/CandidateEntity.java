@@ -17,6 +17,17 @@ public class CandidateEntity extends PersonEntity {
     private int experiencia;
     private Double aptitud;
     private Double salario_proyectado;
+    private CargoEntity cargoaspirado;
+
+    public CargoEntity getCargoaspirado() {
+        return cargoaspirado;
+    }
+
+    public void setCargoaspirado(CargoEntity cargoaspirado) {
+        this.cargoaspirado = cargoaspirado;
+    }
+    
+    
 
     public Double getSalario_proyectado() {
         return salario_proyectado;

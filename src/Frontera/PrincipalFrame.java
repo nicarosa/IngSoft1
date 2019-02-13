@@ -8,7 +8,8 @@ package Frontera;
 import Entidad.EmployeeEntity;
 import Entidad.CandidatesList;
 import Entidad.EmployeesList;
-import Entidad.PositionEntity;
+import Entidad.CargoEntity;
+import Entidad.CargoListEntity;
 import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -24,6 +25,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
 
     public static EmployeesList listaEmpleados = new EmployeesList();
     public static CandidatesList listaCandidatos = new CandidatesList();
+    public static CargoListEntity listaCargos = new CargoListEntity();
 
     public PrincipalFrame() {
         initComponents();
@@ -244,19 +246,44 @@ public class PrincipalFrame extends javax.swing.JFrame {
         EmployeeEntity dos = new EmployeeEntity();
         EmployeeEntity tres = new EmployeeEntity();
 
-        PositionEntity Chef = new PositionEntity();
-        PositionEntity Janitor = new PositionEntity();
-        PositionEntity Dishwasher = new PositionEntity();
+        CargoEntity cargo1 = new CargoEntity();
+        CargoEntity cargo2 = new CargoEntity();
+        CargoEntity cargo3 = new CargoEntity();
 
-        Chef.setNombre("Head Chef");
-        Chef.setSueldo(2000000);
+        //Psicologia 
+        //Ingenieria 
+        //Economia 
+        //Estadistca
+        
+        cargo1.setNombre("cargo 1");
+        cargo1.setSueldo(2000000);
+        cargo1.setCarreraOptima("Ingenieria");
+        cargo1.añadirCarrerasAfines("Economia");
+        cargo1.añadirCarrerasAfines("Estadistica");
+        cargo1.setExperienciaRequerida(8);
+        cargo1.setEstudiosRequeridos(4);
+        
+        cargo2.setNombre("cargo 2");
+        cargo2.setSueldo(1000000);
+        cargo2.setCarreraOptima("Economia");
+        cargo2.añadirCarrerasAfines("Ingenieria");
+        cargo2.añadirCarrerasAfines("Estadistica");
+        cargo2.setExperienciaRequerida(8);
+        cargo2.setEstudiosRequeridos(3);
 
-        Janitor.setNombre("Conserje");
-        Janitor.setSueldo(1000000);
 
-        Dishwasher.setNombre("Lava Platos");
-        Dishwasher.setSueldo(800000);
+        cargo3.setNombre("cargo 3");
+        cargo3.setSueldo(800000);
+        cargo3.setCarreraOptima("Estadistica");
+        cargo3.añadirCarrerasAfines("Economia");
+        cargo3.añadirCarrerasAfines("Psicologia");
+        cargo3.setExperienciaRequerida(8);
+        cargo3.setEstudiosRequeridos(1);
 
+        listaCargos.AñadirCargo(cargo1);
+        listaCargos.AñadirCargo(cargo2);
+        listaCargos.AñadirCargo(cargo3);
+        
         uno.setARL("1020");
         uno.setActivo(true);
         uno.setApellido("CHAVES");
@@ -268,7 +295,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
         uno.getNovedades().setHorasTrabajadas(1440);
-        uno.setCargo(Dishwasher);
+        uno.setCargo(cargo3);
 
         dos.setARL("1030");
         dos.setActivo(true);
@@ -281,7 +308,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         dos.setId("1019146963");
         dos.setNombre("SEBASTIAN");
         dos.setPensiones(900000);
-        dos.setCargo(Janitor);
+        dos.setCargo(cargo2);
 
         tres.setARL("1040");
         tres.setActivo(true);
@@ -294,7 +321,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         tres.setId("1013647467");
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
-        tres.setCargo(Chef);
+        tres.setCargo(cargo1);
 
         listaEmpleados.AñadirEmpleado(uno);
         listaEmpleados.AñadirEmpleado(dos);

@@ -13,7 +13,7 @@ public class EmployeeEntity extends PersonEntity {
 
     private String ARL;
     private String EPS;
-    private PositionEntity cargo;
+    private CargoEntity cargo;
     private int pensiones;
     private double cesantias;
     private int contactoDeEmergencia;
@@ -23,7 +23,7 @@ public class EmployeeEntity extends PersonEntity {
 
     public EmployeeEntity() {
         novedades = new NoveltyEntity();
-        cargo = new PositionEntity();
+        cargo = new CargoEntity();
     }
     
 
@@ -84,11 +84,11 @@ public class EmployeeEntity extends PersonEntity {
         this.activo = activo;
     }
 
-    public PositionEntity getCargo() {
+    public CargoEntity getCargo() {
         return cargo;
     }
 
-    public void setCargo(PositionEntity cargo) {
+    public void setCargo(CargoEntity cargo) {
         this.cargo = cargo;
     }
 

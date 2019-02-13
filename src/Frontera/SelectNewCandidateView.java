@@ -316,6 +316,7 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
 
         //Hace falta hacer el método en el controlador que coloque esto, esto es por default
         candidato.setAptitud(90.9);
+        
         //Este campo no está en la lista, toca añadirlo
         candidato.setSalario_proyectado(1000.0);
 
