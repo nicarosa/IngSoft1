@@ -7,11 +7,22 @@ package Entidad;
 
 import java.util.ArrayList;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  *
  * @author USUARIO
  */
-public class CargoEntity {
+@Entity
+@Table(name="CargoEntity")
+public class CargoEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String Nombre;
     private String carreraOptima = null;
     private ArrayList <String> carrerasAfines = new ArrayList<>();
@@ -29,7 +40,15 @@ public class CargoEntity {
     public CargoEntity() {
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     public String getCarreraOptima() {
         return carreraOptima;
     }

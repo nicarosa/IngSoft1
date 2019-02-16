@@ -16,8 +16,7 @@ public class PersonEntity {
     private String identificacion;
     private int edad;
 
-    public PersonEntity() {
-    }
+    
 
     public String getNombre() {
         return nombre;

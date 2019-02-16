@@ -190,12 +190,13 @@ public class EmpleadoDAO {
     }
     
     
-    public boolean actualizar(EmployeeEntity object, EmployeeEntity nuevoObjeto){
+    public boolean actualizar(String identificacion, EmployeeEntity nuevoObjeto){
         EntityManager em = emf.createEntityManager();
+        EmployeeEntity object;
         em.getTransaction().begin();
         boolean ret = false;
         try{
-            object = leer(object);
+            object = obtener(identificacion);
             object.setNombre(nuevoObjeto.getNombre());
             object.setApellido(nuevoObjeto.getApellido());
             object.setIdentificacion(nuevoObjeto.getIdentificacion());

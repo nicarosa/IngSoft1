@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="EmployeeEntity")
-public class EmployeeEntity extends PersonEntity implements Serializable {
+public class EmployeeEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -39,6 +39,45 @@ public class EmployeeEntity extends PersonEntity implements Serializable {
     private int HorasSinVacaciones = 0; //en dias
     private int HorasSinPrimaSemestral = 0;
     private int DiasDeVacaciones = 0;
+    private String nombre;
+    private String apellido;
+    private String identificacion;
+    private int edad;
+
+    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public void setIdentificacion(String id) {
+        this.identificacion = id;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
 
     public EmployeeEntity() {
         cargo = new CargoEntity();
