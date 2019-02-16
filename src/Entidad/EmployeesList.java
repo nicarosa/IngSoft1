@@ -32,7 +32,7 @@ public class EmployeesList {
     public EmployeeEntity getEmpleado(String id) {
         EmployeeEntity aux = new EmployeeEntity();
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            if (id.equals(listaEmpleados.get(i).getId())) {
+            if (id.equals(listaEmpleados.get(i).getIdentificacion())) {
 
                 aux = listaEmpleados.get(i);
                 break;
@@ -46,7 +46,7 @@ public class EmployeesList {
     public void retirarEmpleado(String id) {
         EmployeeEntity aux = new EmployeeEntity();
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            if (id.equals(listaEmpleados.get(i).getId())) {
+            if (id.equals(listaEmpleados.get(i).getIdentificacion())) {
 
                 listaEmpleados.remove(i);
             }

@@ -6,6 +6,7 @@
 package Frontera;
 
 import Entidad.EmployeeEntity;
+import dao.EmpleadoDAO;
 import java.awt.GridBagConstraints;
 import java.awt.Label;
 import javax.swing.JOptionPane;
@@ -81,10 +82,10 @@ public class NoveltySearchView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
-
+        EmpleadoDAO dao = new EmpleadoDAO();
         String documento = this.documentoTF.getText();
-        aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
-
+        //aux = PrincipalFrame.listaEmpleados.getEmpleado(documento);
+        aux = dao.obtener(documento);
         if (aux == null) {
             JOptionPane.showMessageDialog(null, "No existe el empleado");
         } else {

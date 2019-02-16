@@ -122,31 +122,31 @@ public class NoveltyView extends javax.swing.JPanel {
         EmployeeEntity aux = NoveltySearchView.getAux();
         switch (novedadesCB.getSelectedIndex()) {
             case 0:
-                aux.getNovedades().setHorasNocturnas(aux.getNovedades().getHorasNocturnas()
+                aux.setHorasNocturnas(aux.getHorasNocturnas()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 1:
-                aux.getNovedades().setHorasDominicales(aux.getNovedades().getHorasDominicales()
+                aux.setHorasDominicales(aux.getHorasDominicales()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 2:
-                aux.getNovedades().setBonos(aux.getNovedades().getBonos()
+                aux.setBonos(aux.getBonos()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 3:
-                aux.getNovedades().setHorasExtra(aux.getNovedades().getHorasExtra()
+                aux.setHorasExtra(aux.getHorasExtra()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
 
             case 4:
-                aux.getNovedades().setHorasTrabajadas(aux.getNovedades().getHorasTrabajadas()
+                aux.setHorasTrabajadas(aux.getHorasTrabajadas()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
         }
-        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getIdentificacion());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
-        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
-        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
         confirmLB.setVisible(true);
 
     }//GEN-LAST:event_aceptarBActionPerformed

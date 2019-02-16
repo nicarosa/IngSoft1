@@ -43,7 +43,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         for (int i = 0; i < listaEmpleados.size(); i++) {
             rowData[0] = listaEmpleados.sacar(i).getNombre();
             rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
             rowData[3] = listaEmpleados.sacar(i).getEdad();
             rowData[4] = listaEmpleados.sacar(i).getARL();
             rowData[5] = listaEmpleados.sacar(i).getEPS();
@@ -291,10 +291,10 @@ public class PrincipalFrame extends javax.swing.JFrame {
         uno.setDireccion("Avenida calle 22#15-69");
         uno.setEPS("SaludCoop");
         uno.setEdad(21);
-        uno.setId("1030685411");
+        uno.setIdentificacion("1030685411");
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
-        uno.getNovedades().setHorasTrabajadas(1440);
+        uno.setHorasTrabajadas(1440);
         uno.setCargo(cargo3);
 
         dos.setARL("1030");
@@ -305,7 +305,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         dos.setDireccion("AVENIDA LAS FERIAS#70-05");
         dos.setEPS("SALUDTOTAL");
         dos.setEdad(19);
-        dos.setId("1019146963");
+        dos.setIdentificacion("1019146963");
         dos.setNombre("SEBASTIAN");
         dos.setPensiones(900000);
         dos.setCargo(cargo2);
@@ -318,7 +318,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
         tres.setDireccion("AV.PRIMERADEMAYO#70-22");
         tres.setEPS("VIVASALUD");
         tres.setEdad(25);
-        tres.setId("1013647467");
+        tres.setIdentificacion("1013647467");
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
         tres.setCargo(cargo1);

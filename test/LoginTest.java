@@ -11,7 +11,6 @@ import Entidad.CandidateEntity;
 import Entidad.EmployeeEntity;
 import Entidad.CargoEntity;
 import Entidad.Usuario;
-import static Frontera.LoginFrame.sistema;
 import static Frontera.PrincipalFrame.listaCandidatos;
 import static Frontera.PrincipalFrame.listaCargos;
 import static Frontera.PrincipalFrame.listaEmpleados;
@@ -50,30 +49,6 @@ public class LoginTest {
     
     @BeforeClass
     public static void setUpClass() {
-        ArrayList<Usuario> usuario = new ArrayList<Usuario>();
-
-        Usuario a = new Usuario();
-        Usuario b = new Usuario();
-        Usuario c = new Usuario();
-
-        a.setNombre("juan");
-        a.setPassword("1234");
-        b.setNombre("pedro");
-        b.setPassword("123");
-        c.setNombre("maria");
-        c.setPassword("12345");
-
-        usuario.add(a);
-        usuario.add(b);
-        usuario.add(c);
-
-        sistema.setUsuarios(usuario);
-
-        for (Usuario u : sistema.getUsuarios()) {
-            System.out.println(u.getNombre());
-            System.out.println(u.getPassword());
-            System.out.println("---------------");
-        }
         
         
         
@@ -126,10 +101,10 @@ public class LoginTest {
         uno.setDireccion("Avenida calle 22#15-69");
         uno.setEPS("SaludCoop");
         uno.setEdad(21);
-        uno.setId("1030685411");
+        uno.setIdentificacion("1030685411");
         uno.setNombre("ANDRES");
         uno.setPensiones(900000);
-        uno.getNovedades().setHorasTrabajadas(1440);
+        uno.setHorasTrabajadas(1440);
         uno.setCargo(cargo3);
 
         dos.setARL("1030");
@@ -140,7 +115,7 @@ public class LoginTest {
         dos.setDireccion("AVENIDA LAS FERIAS#70-05");
         dos.setEPS("SALUDTOTAL");
         dos.setEdad(19);
-        dos.setId("1019146963");
+        dos.setIdentificacion("1019146963");
         dos.setNombre("SEBASTIAN");
         dos.setPensiones(900000);
         dos.setCargo(cargo2);
@@ -153,7 +128,7 @@ public class LoginTest {
         tres.setDireccion("AV.PRIMERADEMAYO#70-22");
         tres.setEPS("VIVASALUD");
         tres.setEdad(25);
-        tres.setId("1013647467");
+        tres.setIdentificacion("1013647467");
         tres.setNombre("NICOLAS");
         tres.setPensiones(1200000);
         tres.setCargo(cargo1);
@@ -227,14 +202,14 @@ public class LoginTest {
         int aumento2 = 15;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setHorasNocturnas(aux.getNovedades().getHorasNocturnas() + aumento1);
+        aux.setHorasNocturnas(aux.getHorasNocturnas() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasNocturnas(), aumento1);
-        aux.getNovedades().setHorasNocturnas(aux.getNovedades().getHorasNocturnas() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasNocturnas(), aumento1);
+        aux.setHorasNocturnas(aux.getHorasNocturnas() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasNocturnas(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasNocturnas(), aumento1+aumento2);
         
     }
     @Test
@@ -244,14 +219,14 @@ public class LoginTest {
         int aumento2 = 7;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setHorasDominicales(aux.getNovedades().getHorasDominicales()+ aumento1);
+        aux.setHorasDominicales(aux.getHorasDominicales()+ aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasDominicales(), aumento1);
-        aux.getNovedades().setHorasDominicales(aux.getNovedades().getHorasDominicales()+ aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasDominicales(), aumento1);
+        aux.setHorasDominicales(aux.getHorasDominicales()+ aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasDominicales(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasDominicales(), aumento1+aumento2);
         
     }
     @Test
@@ -261,14 +236,14 @@ public class LoginTest {
         int aumento2 = 3000;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setBonos(aux.getNovedades().getBonos()+ aumento1);
+        aux.setBonos(aux.getBonos()+ aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getBonos(), aumento1);
-        aux.getNovedades().setBonos(aux.getNovedades().getBonos()+ aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getBonos(), aumento1);
+        aux.setBonos(aux.getBonos()+ aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getBonos(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getBonos(), aumento1+aumento2);
         
     }
     @Test
@@ -278,14 +253,14 @@ public class LoginTest {
         int aumento2 = 30;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setHorasExtra(aux.getNovedades().getHorasExtra() + aumento1);
+        aux.setHorasExtra(aux.getHorasExtra() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasExtra(), aumento1);
-        aux.getNovedades().setHorasExtra(aux.getNovedades().getHorasExtra() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasExtra(), aumento1);
+        aux.setHorasExtra(aux.getHorasExtra() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasExtra(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasExtra(), aumento1+aumento2);
         
     }
     @Test
@@ -295,14 +270,14 @@ public class LoginTest {
         int aumento2 = 40;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setHorasTrabajadas(aux.getNovedades().getHorasTrabajadas() + aumento1);
+        aux.setHorasTrabajadas(aux.getHorasTrabajadas() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasTrabajadas(), aumento1);
-        aux.getNovedades().setHorasTrabajadas(aux.getNovedades().getHorasTrabajadas() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasTrabajadas(), aumento1);
+        aux.setHorasTrabajadas(aux.getHorasTrabajadas() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getHorasTrabajadas(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getHorasTrabajadas(), aumento1+aumento2);
         
     }
     @Test
@@ -312,14 +287,14 @@ public class LoginTest {
         int aumento2 = 2;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad() + aumento1);
+        aux.setIncapacidad(aux.getIncapacidad() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getIncapacidad(), aumento1);
-        aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getIncapacidad(), aumento1);
+        aux.setIncapacidad(aux.getIncapacidad() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getIncapacidad(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getIncapacidad(), aumento1+aumento2);
         
     }
     @Test
@@ -329,14 +304,14 @@ public class LoginTest {
         int aumento2 = 2;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setFaltas(aux.getNovedades().getFaltas() + aumento1);
+        aux.setFaltas(aux.getFaltas() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getFaltas(), aumento1);
-        aux.getNovedades().setFaltas(aux.getNovedades().getFaltas() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getFaltas(), aumento1);
+        aux.setFaltas(aux.getFaltas() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getFaltas(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getFaltas(), aumento1+aumento2);
         
     }
     @Test
@@ -346,14 +321,14 @@ public class LoginTest {
         int aumento2 = 1000;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);
-        aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto() + aumento1);
+        aux.setAdelanto(aux.getAdelanto() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getAdelanto(), aumento1);
-        aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getAdelanto(), aumento1);
+        aux.setAdelanto(aux.getAdelanto() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getAdelanto(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getAdelanto(), aumento1+aumento2);
         
     }
     @Test
@@ -363,20 +338,20 @@ public class LoginTest {
         int aumento2 = 8;
         EmployeeEntity aux = new EmployeeEntity();
         aux = listaEmpleados.getEmpleado(id);        
-        aux.getNovedades().setDiasDeVacaciones(aux.getNovedades().getDiasDeVacaciones() + aumento1);
+        aux.setDiasDeVacaciones(aux.getDiasDeVacaciones() + aumento1);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getDiasDeVacaciones(), aumento1);
-        aux.getNovedades().setDiasDeVacaciones(aux.getNovedades().getDiasDeVacaciones() + aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getDiasDeVacaciones(), aumento1);
+        aux.setDiasDeVacaciones(aux.getDiasDeVacaciones() + aumento2);
         listaEmpleados.retirarEmpleado(id);
         listaEmpleados.AñadirEmpleado(aux);
-        assertEquals(listaEmpleados.getEmpleado(id).getNovedades().getDiasDeVacaciones(), aumento1+aumento2);
+        assertEquals(listaEmpleados.getEmpleado(id).getDiasDeVacaciones(), aumento1+aumento2);
         
     }
     @Test
     public void testNuevoCandidato(){
         CandidateEntity aux = new CandidateEntity();
-        aux.setId("874361594");
+        aux.setIdentificacion("874361594");
         aux.setNombre("carlos");
         aux.setApellido("muños");
         aux.setNivelDeEstudios("Profesional");
@@ -389,7 +364,7 @@ public class LoginTest {
     @Test
     public void testNuevoEmpleado(){
         EmployeeEntity aux = new EmployeeEntity();
-        aux.setId("749173821");
+        aux.setIdentificacion("749173821");
         aux.setNombre("maria");
         aux.setApellido("garzon");
         aux.setARL("sura");
@@ -413,7 +388,7 @@ public class LoginTest {
         for (int i = 0; i < listaEmpleados.size(); i++) {
             rowData[0] = listaEmpleados.sacar(i).getNombre();
             rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
             rowData[3] = listaEmpleados.sacar(i).getEdad();
             rowData[4] = listaEmpleados.sacar(i).getARL();
             rowData[5] = listaEmpleados.sacar(i).getEPS();
@@ -444,7 +419,7 @@ public class LoginTest {
         for (int i = 0; i < listaEmpleados.size(); i++) {
             rowData[0] = listaEmpleados.sacar(i).getNombre();
             rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getId();
+            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
             rowData[3] = listaEmpleados.sacar(i).getEdad();
             rowData[4] = listaEmpleados.sacar(i).getARL();
             rowData[5] = listaEmpleados.sacar(i).getEPS();
@@ -500,7 +475,7 @@ public class LoginTest {
     public void testRetiroEmpleadoinexistente(){
         EmployeeEntity aux = new EmployeeEntity();
         RemoveControl r = new RemoveControl();
-        aux.setId("749173821");
+        aux.setIdentificacion("749173821");
         aux.setNombre("maria");
         aux.setApellido("garzon");
         aux.setARL("sura");

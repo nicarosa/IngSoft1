@@ -30,7 +30,7 @@ public class CandidatesList {
     public CandidateEntity getCandidato(String id) {
         CandidateEntity aux = new CandidateEntity();
         for (int i = 0; i < this.listaCandidatos.size(); i++) {
-            if (id.equals(this.listaCandidatos.get(i).getId())) {
+            if (id.equals(this.listaCandidatos.get(i).getIdentificacion())) {
                 aux = this.listaCandidatos.get(i);
             }
         }

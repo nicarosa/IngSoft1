@@ -204,7 +204,7 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
     private void GuardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarBActionPerformed
         EmployeeEntity aux = new EmployeeEntity();
         aux.setNombre(NombreTF.getText());
-        aux.setId(CedulaTF.getText());
+        aux.setIdentificacion(CedulaTF.getText());
         aux.setApellido(ApellidoTF.getText());
         aux.setARL(ARLTF.getText());
         aux.setEdad(Integer.parseInt(EdadTF.getText()));

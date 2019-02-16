@@ -21,14 +21,14 @@ public class CalculateSalaryControl {
         if (aux.isActivo()) {
             double salarioBase = aux.getCargo().getSueldo();
             double sbMenosSalud = salarioBase - (0.08 * salarioBase);
-            double horasNocturnas = ((double) aux.getNovedades().getHorasNocturnas() * (salarioBase * 0.35));
-            double horasDominicales = ((double) aux.getNovedades().getHorasDominicales() * (salarioBase * 1.75));
-            double horasExtra = ((double) aux.getNovedades().getHorasExtra() * (salarioBase * 0.25));
-            double bonus = (double) aux.getNovedades().getBonos();
-            double faltas = ((double) aux.getNovedades().getFaltas() * (salarioBase * 2.75));
+            double horasNocturnas = ((double) aux.getHorasNocturnas() * (salarioBase * 0.35));
+            double horasDominicales = ((double) aux.getHorasDominicales() * (salarioBase * 1.75));
+            double horasExtra = ((double) aux.getHorasExtra() * (salarioBase * 0.25));
+            double bonus = (double) aux.getBonos();
+            double faltas = ((double) aux.getFaltas() * (salarioBase * 2.75));
             double vacacionesIncapacidad = 0;
-            if ((aux.getNovedades().getDiasDeVacaciones()) + (aux.getNovedades().getIncapacidad()) > 3) {
-                vacacionesIncapacidad = ((double) ((aux.getNovedades().getDiasDeVacaciones()) + (aux.getNovedades().getIncapacidad())) * (0.25));
+            if ((aux.getDiasDeVacaciones()) + (aux.getIncapacidad()) > 3) {
+                vacacionesIncapacidad = ((double) ((aux.getDiasDeVacaciones()) + (aux.getIncapacidad())) * (0.25));
             }
             sueldoFinal = sbMenosSalud + horasNocturnas + horasDominicales + horasExtra + bonus - faltas - vacacionesIncapacidad;
         }

@@ -101,7 +101,7 @@ public class SalaryView extends javax.swing.JPanel {
                 Salario = c.calcular(buscarTF.getText());
                 JOptionPane.showMessageDialog(null, "el salario del empleado "
                 + aux.getNombre() + " " + aux.getApellido() + " es: " + Salario);
-                aux.getNovedades().reset();
+                aux.reset();
                 PrincipalFrame.listaEmpleados.retirarEmpleado(RetirarId);
                 PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
             } else {

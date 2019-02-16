@@ -5,7 +5,7 @@
  */
 package Frontera;
 
-import Entidad.Sistema;
+
 import Entidad.Usuario;
 
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class LoginFrame extends javax.swing.JFrame {
-    public static Sistema sistema = new Sistema();
+   
     static LoginFrame n = new LoginFrame();
     /**
      * Creates new form LoginFrame
      */
     public LoginFrame() {
         initComponents();
-        inicializacion();
+        //inicializacion();
     }
 
     /**
@@ -113,7 +113,7 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         });
     }
-    public void inicializacion() {
+    /*public void inicializacion() {
         ArrayList<Usuario> usuario = new ArrayList<Usuario>();
 
         Usuario a = new Usuario();
@@ -138,7 +138,7 @@ public class LoginFrame extends javax.swing.JFrame {
             System.out.println(u.getPassword());
             System.out.println("---------------");
         }
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton IngresoB;

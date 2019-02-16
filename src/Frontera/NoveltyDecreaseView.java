@@ -123,26 +123,26 @@ public class NoveltyDecreaseView extends javax.swing.JPanel {
         EmployeeEntity aux = NoveltySearchView.getAux();
         switch (novedadesCB.getSelectedIndex()) {
             case 0:
-                aux.getNovedades().setIncapacidad(aux.getNovedades().getIncapacidad()
+                aux.setIncapacidad(aux.getIncapacidad()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 1:
-                aux.getNovedades().setFaltas(aux.getNovedades().getFaltas()
+                aux.setFaltas(aux.getFaltas()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 2:
-                aux.getNovedades().setAdelanto(aux.getNovedades().getAdelanto()
+                aux.setAdelanto(aux.getAdelanto()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
             case 3:
-                aux.getNovedades().setDiasDeVacaciones(aux.getNovedades().getDiasDeVacaciones()
+                aux.setDiasDeVacaciones(aux.getDiasDeVacaciones()
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
         }
-        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getId());
+        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getIdentificacion());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
-        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).toString());
-        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getId()).getNovedades().toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
 
         confirmLB.setVisible(true);
     }//GEN-LAST:event_aceptarBActionPerformed

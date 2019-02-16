@@ -13,7 +13,7 @@ public class PersonEntity {
 
     private String nombre;
     private String apellido;
-    private String id;
+    private String identificacion;
     private int edad;
 
     public PersonEntity() {
@@ -35,12 +35,12 @@ public class PersonEntity {
         this.apellido = apellido;
     }
 
-    public String getId() {
-        return id;
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdentificacion(String id) {
+        this.identificacion = id;
     }
 
     public int getEdad() {
@@ -53,7 +53,7 @@ public class PersonEntity {
 
     @Override
     public String toString() {
-        return this.nombre + " " + this.apellido + " " + this.id + " " + this.edad;
+        return this.nombre + " " + this.apellido + " " + this.identificacion + " " + this.edad;
     }
 
 }

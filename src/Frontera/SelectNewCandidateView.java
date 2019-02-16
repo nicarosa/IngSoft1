@@ -306,7 +306,7 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
         });
         mensaje.setVisible(true);
         CandidateEntity candidato = new CandidateEntity();
-        candidato.setId(idTF.getText());
+        candidato.setIdentificacion(idTF.getText());
         candidato.setNombre(nombretf.getText());
         candidato.setApellido(apellidoTF.getText());
         candidato.setNivelDeEstudios(NivelDeEstudiosCB.getItemAt(NivelDeEstudiosCB.getSelectedIndex()));
