@@ -5,10 +5,12 @@
  */
 package Frontera;
 
+import Entidad.CandidateEntity;
 import Entidad.CandidatesTableModel;
 import javax.swing.JComponent;
 import Frontera.PrincipalFrame;
 import dao.CandidateDAO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,7 +20,10 @@ import javax.swing.JPanel;
 public class SelectExistingCandidateView extends javax.swing.JPanel {
 
     private HireCandidateView contratar = new HireCandidateView();
+    private String identificacion;
     private JPanel ParentPanel;
+    private static CandidateEntity aux;
+    private CandidateDAO dao = new CandidateDAO();
 
     /**
      * Creates new form candidatosExistentes
@@ -51,8 +56,9 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
         candidatosTB = new javax.swing.JTable();
         seleccionarB = new javax.swing.JButton();
         mensaje = new javax.swing.JLabel();
+        seleccionarTF = new javax.swing.JTextField();
 
-        jLabel1.setText("Por favor selecciona uno de los siguientes candidatos:");
+        jLabel1.setText("escriba el docuemento del empleado que desea contratar");
 
         candidatosTB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,20 +89,23 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(seleccionarTF, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(90, 90, 90)
                 .addComponent(mensaje)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(seleccionarB)
-                .addGap(41, 41, 41))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(seleccionarTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,8 +117,20 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void seleccionarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarBActionPerformed
-        javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, contratar));
+        identificacion = seleccionarTF.getText();
+        aux = dao.leer(identificacion);
+        if(aux == null){
+            JOptionPane.showMessageDialog(null, "No existe el candidato");
+        }
+        else{
+            javax.swing.SwingUtilities.invokeLater(() -> ActualizarGUI(ParentPanel, contratar));
+        }
+        
     }//GEN-LAST:event_seleccionarBActionPerformed
+
+    public static CandidateEntity getAux() {
+        return aux;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -118,5 +139,6 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel mensaje;
     private javax.swing.JButton seleccionarB;
+    private javax.swing.JTextField seleccionarTF;
     // End of variables declaration//GEN-END:variables
 }

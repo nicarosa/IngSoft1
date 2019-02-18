@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class CandidatesTableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"Nombre", "Apellido", "Carrera", "Aptitud", "Cargo deaseado"};
+    private String[] columnNames = {"Identificacion","Nombre", "Apellido", "Carrera", "Aptitud", "Cargo deaseado"};
     private ArrayList<CandidateEntity> candidatos;
 
     public CandidatesTableModel(ArrayList<CandidateEntity> candidateList) {
@@ -44,16 +44,18 @@ public class CandidatesTableModel extends AbstractTableModel {
 
     public Object getValueAt(int row, int col) {
         Object temp = null;
-        if (col == 0) {
+        if (col == 1) {
             temp = candidatos.get(row).getNombre();
-        } else if (col == 1) {
-            temp = candidatos.get(row).getApellido();
         } else if (col == 2) {
-            temp = candidatos.get(row).getProfesion();
+            temp = candidatos.get(row).getApellido();
         } else if (col == 3) {
-            temp = new Double(candidatos.get(row).getAptitud());
+            temp = candidatos.get(row).getProfesion();
         } else if (col == 4) {
+            temp = new Double(candidatos.get(row).getAptitud());
+        } else if (col == 5) {
             temp = candidatos.get(row).getCargoaspirado().getNombre();
+        }else if (col == 0) {
+            temp = candidatos.get(row).getIdentificacion();
         }
         //Acá haría falta si es ex-empleado o no, pero toca hacer el método para eso
         return temp;
@@ -65,7 +67,7 @@ public class CandidatesTableModel extends AbstractTableModel {
     }
 
     public Class getColumnClass(int col) {
-        if (col == 3) {
+        if (col == 4) {
             return Double.class;
         } else {
             return String.class;

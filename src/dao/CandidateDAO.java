@@ -44,6 +44,7 @@ public class CandidateDAO {
         em.getTransaction().begin();
         boolean ret = false;
         try {
+            object = em.find(CandidateEntity.class, object.getId());
             em.remove(object);
             em.getTransaction().commit();
             ret = true;

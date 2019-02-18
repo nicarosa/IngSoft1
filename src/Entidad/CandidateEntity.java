@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
  *
@@ -29,6 +30,7 @@ public class CandidateEntity implements Serializable {
     private int experiencia;
     private Double aptitud =0.0;
     private Double salario_proyectado=0.0;
+    @OneToOne
     private CargoEntity cargoaspirado;
     private String nombre;
     private String apellido;
@@ -49,7 +51,7 @@ public class CandidateEntity implements Serializable {
         this.id = id;
     }
     
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
