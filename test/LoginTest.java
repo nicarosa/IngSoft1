@@ -6,11 +6,11 @@
 
 import Control.CalculateSalaryControl;
 import Control.RemoveControl;
+import Control.SelectControl;
 import Control.ValidarLogin;
 import Entidad.CandidateEntity;
 import Entidad.EmployeeEntity;
 import Entidad.Usuario;
-import static Frontera.PrincipalFrame.listaEmpleados;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -25,6 +25,7 @@ import dao.CandidateDAO;
 import dao.CargoDAO;
 import dao.EmpleadoDAO;
 import dao.UsuarioDAO;
+import java.util.ArrayList;
 /**
  *
  * @author USUARIO
@@ -251,6 +252,7 @@ public class LoginTest {
     @Test
     public void testNuevoCandidato(){
         CandidateEntity aux = new CandidateEntity();
+        SelectControl sc = new SelectControl();
         aux.setIdentificacion("874361594");
         aux.setNombre("carlos");
         aux.setApellido("muños");
@@ -258,6 +260,8 @@ public class LoginTest {
         aux.setProfesion("Economia");
         aux.setUniversidad("Nacional");
         aux.setExperiencia(5);
+        aux.setCargoaspirado(cargodao.leer("cargo 2"));
+        aux.setAptitud(sc.CalcularAptitud(aux));
         cadidatodao.crear(aux);
         assertEquals(cadidatodao.leer("874361594").getIdentificacion(), aux.getIdentificacion());
     }
@@ -285,24 +289,24 @@ public class LoginTest {
         DefaultTableModel model = (DefaultTableModel) tabla.getModel();
         model.setColumnCount(11);
         Object rowData[] = new Object[11];
-        
+        ArrayList<EmployeeEntity> listaEmpleados = empleadodao.getlista();
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            rowData[0] = listaEmpleados.sacar(i).getNombre();
-            rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
-            rowData[3] = listaEmpleados.sacar(i).getEdad();
-            rowData[4] = listaEmpleados.sacar(i).getARL();
-            rowData[5] = listaEmpleados.sacar(i).getEPS();
-            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
-            rowData[7] = listaEmpleados.sacar(i).getDireccion();
-            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
-            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
-            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            rowData[0] = listaEmpleados.get(i).getNombre();
+            rowData[1] = listaEmpleados.get(i).getApellido();
+            rowData[2] = listaEmpleados.get(i).getIdentificacion();
+            rowData[3] = listaEmpleados.get(i).getEdad();
+            rowData[4] = listaEmpleados.get(i).getARL();
+            rowData[5] = listaEmpleados.get(i).getEPS();
+            rowData[6] = listaEmpleados.get(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.get(i).getDireccion();
+            rowData[8] = listaEmpleados.get(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.get(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.get(i).isActivo();
             model.addRow(rowData);
         }
         for (int count = 0; count < model.getRowCount(); count++){
  
-        assertEquals(listaEmpleados.sacar(count).getNombre(),model.getValueAt(count,0).toString() );
+        assertEquals(listaEmpleados.get(count).getNombre(),model.getValueAt(count,0).toString() );
         }
     }
     
@@ -317,18 +321,19 @@ public class LoginTest {
         model.setColumnCount(11);
         Object rowData[] = new Object[11];
         
+        ArrayList<EmployeeEntity> listaEmpleados = empleadodao.getlista();
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            rowData[0] = listaEmpleados.sacar(i).getNombre();
-            rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
-            rowData[3] = listaEmpleados.sacar(i).getEdad();
-            rowData[4] = listaEmpleados.sacar(i).getARL();
-            rowData[5] = listaEmpleados.sacar(i).getEPS();
-            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
-            rowData[7] = listaEmpleados.sacar(i).getDireccion();
-            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
-            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
-            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            rowData[0] = listaEmpleados.get(i).getNombre();
+            rowData[1] = listaEmpleados.get(i).getApellido();
+            rowData[2] = listaEmpleados.get(i).getIdentificacion();
+            rowData[3] = listaEmpleados.get(i).getEdad();
+            rowData[4] = listaEmpleados.get(i).getARL();
+            rowData[5] = listaEmpleados.get(i).getEPS();
+            rowData[6] = listaEmpleados.get(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.get(i).getDireccion();
+            rowData[8] = listaEmpleados.get(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.get(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.get(i).isActivo();
             model.addRow(rowData);
         }
         TableRowSorter<DefaultTableModel> sort = new TableRowSorter<DefaultTableModel>(model);
@@ -339,9 +344,9 @@ public class LoginTest {
         sort.setRowFilter(RowFilter.regexFilter(query));
         assertEquals(query,model.getValueAt(0,2).toString() );
         sort.setRowFilter(RowFilter.regexFilter(query));
-        assertEquals(query2,model.getValueAt(1,2).toString() );
+        assertEquals(query2,model.getValueAt(2,2).toString() );
         sort.setRowFilter(RowFilter.regexFilter(query));
-        assertEquals(query3,model.getValueAt(2,2).toString() );
+        assertEquals(query3,model.getValueAt(1,2).toString() );
     }  
     
     @Test

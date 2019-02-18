@@ -6,12 +6,9 @@
 package Frontera;
 
 import Control.CalculateSalaryControl;
-import Control.RemoveControl;
 import Entidad.EmployeeEntity;
-import Entidad.EmployeesList;
 import dao.EmpleadoDAO;
 import javax.swing.JOptionPane;
-import sun.reflect.generics.visitor.Reifier;
 
 /**
  *

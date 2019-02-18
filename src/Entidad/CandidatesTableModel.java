@@ -21,11 +21,11 @@ import java.util.ArrayList;
 
 public class CandidatesTableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"Nombre", "Apellido", "Carrera", "Aptitud", "Salario Proyectado"};
+    private String[] columnNames = {"Nombre", "Apellido", "Carrera", "Aptitud", "Cargo deaseado"};
     private ArrayList<CandidateEntity> candidatos;
 
-    public CandidatesTableModel(CandidatesList candidateList) {
-        candidatos = candidateList.getCandidatos();
+    public CandidatesTableModel(ArrayList<CandidateEntity> candidateList) {
+        candidatos = candidateList;
     }
 
     public int getColumnCount() {
@@ -53,7 +53,7 @@ public class CandidatesTableModel extends AbstractTableModel {
         } else if (col == 3) {
             temp = new Double(candidatos.get(row).getAptitud());
         } else if (col == 4) {
-            temp = new Double(candidatos.get(row).getSalario_proyectado());
+            temp = candidatos.get(row).getCargoaspirado().getNombre();
         }
         //Acá haría falta si es ex-empleado o no, pero toca hacer el método para eso
         return temp;
@@ -65,7 +65,7 @@ public class CandidatesTableModel extends AbstractTableModel {
     }
 
     public Class getColumnClass(int col) {
-        if (col == 3 || col == 4) {
+        if (col == 3) {
             return Double.class;
         } else {
             return String.class;

@@ -7,6 +7,8 @@ package dao;
 
 import Entidad.CandidateEntity;
 import Entidad.CargoEntity;
+import Entidad.EmployeeEntity;
+import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -107,5 +109,14 @@ public class CandidateDAO {
             return ret;
         }
     }
-   
+   public ArrayList<CandidateEntity> getlista(){
+        EntityManager em = emf.createEntityManager();
+        Query qIdentificacion = em.createQuery("Select (e.identificacion) from CandidateEntity e");
+        ArrayList<CandidateEntity> lista = new ArrayList<CandidateEntity>();
+        for (int i = 0; i < qIdentificacion.getResultList().size(); i++) {
+            CandidateEntity aux = leer((String)qIdentificacion.getResultList().get(i));
+            lista.add(aux);
+        }
+        return  lista;
+    }
 }

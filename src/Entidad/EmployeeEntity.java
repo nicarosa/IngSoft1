@@ -270,7 +270,7 @@ public class EmployeeEntity implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString() + " " + ARL + " " + EPS + " " + pensiones + " " + cesantias + " " + contactoDeEmergencia + " " + direccion;
+        return nombre + " " + apellido + " " + identificacion + " " + edad + " " + ARL + " " + EPS + " " + pensiones + " " + cesantias + " " + contactoDeEmergencia + " " + direccion;
     }
 
     public void reset() {

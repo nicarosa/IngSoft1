@@ -8,6 +8,7 @@ package Frontera;
 import Entidad.CandidatesTableModel;
 import javax.swing.JComponent;
 import Frontera.PrincipalFrame;
+import dao.CandidateDAO;
 import javax.swing.JPanel;
 
 /**
@@ -25,7 +26,8 @@ public class SelectExistingCandidateView extends javax.swing.JPanel {
     public SelectExistingCandidateView(JPanel panel) {
         ParentPanel = panel;
         initComponents();
-        candidatosTB.setModel(new CandidatesTableModel(PrincipalFrame.listaCandidatos));
+        CandidateDAO dao = new CandidateDAO();
+        candidatosTB.setModel(new CandidatesTableModel(dao.getlista()));
     }
 
     private void ActualizarGUI(JComponent component1, JComponent component2) {

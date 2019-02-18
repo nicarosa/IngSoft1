@@ -5,8 +5,11 @@
  */
 package dao;
 
+import Entidad.CargoEntity;
 import Entidad.EmployeeEntity;
 import Frontera.RosterView;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -123,4 +126,18 @@ public class EmpleadoDAO {
         }
     }
 
+    public ArrayList<EmployeeEntity> getlista(){
+        EntityManager em = emf.createEntityManager();
+        Query qIdentificacion = em.createQuery("Select (e.identificacion) from EmployeeEntity e");
+        ArrayList<EmployeeEntity> lista = new ArrayList<EmployeeEntity>();
+        for (int i = 0; i < qIdentificacion.getResultList().size(); i++) {
+            EmployeeEntity aux = obtener((String)qIdentificacion.getResultList().get(i));
+            lista.add(aux);
+        }
+        return  lista;
+    }
+    
+   
+    
+    
 }

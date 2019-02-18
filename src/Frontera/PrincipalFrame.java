@@ -6,12 +6,10 @@
 package Frontera;
 
 import Entidad.EmployeeEntity;
-import Entidad.CandidatesList;
-import Entidad.EmployeesList;
-import Entidad.CargoEntity;
-import Entidad.CargoListEntity;
+import dao.EmpleadoDAO;
 import java.awt.Component;
 import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -23,13 +21,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PrincipalFrame extends javax.swing.JFrame {
 
-    public static EmployeesList listaEmpleados = new EmployeesList();
-    public static CandidatesList listaCandidatos = new CandidatesList();
-    public static CargoListEntity listaCargos = new CargoListEntity();
+    
+    
 
     public PrincipalFrame() {
-        initComponents();
-        inicializar();
+        initComponents();        
 
     }
 
@@ -38,20 +34,22 @@ public class PrincipalFrame extends javax.swing.JFrame {
     }
 
     public void addRowtoJtable() {
+        EmpleadoDAO dao = new EmpleadoDAO();
         DefaultTableModel model = (DefaultTableModel) RosterView.listaT.getModel();
         Object rowData[] = new Object[11];
+        ArrayList<EmployeeEntity> listaEmpleados = dao.getlista();
         for (int i = 0; i < listaEmpleados.size(); i++) {
-            rowData[0] = listaEmpleados.sacar(i).getNombre();
-            rowData[1] = listaEmpleados.sacar(i).getApellido();
-            rowData[2] = listaEmpleados.sacar(i).getIdentificacion();
-            rowData[3] = listaEmpleados.sacar(i).getEdad();
-            rowData[4] = listaEmpleados.sacar(i).getARL();
-            rowData[5] = listaEmpleados.sacar(i).getEPS();
-            rowData[6] = listaEmpleados.sacar(i).getContactoDeEmergencia();
-            rowData[7] = listaEmpleados.sacar(i).getDireccion();
-            rowData[8] = listaEmpleados.sacar(i).getCargo().getNombre();
-            rowData[9] = listaEmpleados.sacar(i).getCargo().getSueldo();
-            rowData[10] = listaEmpleados.sacar(i).isActivo();
+            rowData[0] = listaEmpleados.get(i).getNombre();
+            rowData[1] = listaEmpleados.get(i).getApellido();
+            rowData[2] = listaEmpleados.get(i).getIdentificacion();
+            rowData[3] = listaEmpleados.get(i).getEdad();
+            rowData[4] = listaEmpleados.get(i).getARL();
+            rowData[5] = listaEmpleados.get(i).getEPS();
+            rowData[6] = listaEmpleados.get(i).getContactoDeEmergencia();
+            rowData[7] = listaEmpleados.get(i).getDireccion();
+            rowData[8] = listaEmpleados.get(i).getCargo().getNombre();
+            rowData[9] = listaEmpleados.get(i).getCargo().getSueldo();
+            rowData[10] = listaEmpleados.get(i).isActivo();
             model.addRow(rowData);
         }
     }
@@ -240,95 +238,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void inicializar() {
-
-        EmployeeEntity uno = new EmployeeEntity();
-        EmployeeEntity dos = new EmployeeEntity();
-        EmployeeEntity tres = new EmployeeEntity();
-
-        CargoEntity cargo1 = new CargoEntity();
-        CargoEntity cargo2 = new CargoEntity();
-        CargoEntity cargo3 = new CargoEntity();
-
-        //Psicologia 
-        //Ingenieria 
-        //Economia 
-        //Estadistca
-        
-        cargo1.setNombre("cargo 1");
-        cargo1.setSueldo(2000000);
-        cargo1.setCarreraOptima("Ingenieria");
-        cargo1.añadirCarrerasAfines("Economia");
-        cargo1.añadirCarrerasAfines("Estadistica");
-        cargo1.setExperienciaRequerida(8);
-        cargo1.setEstudiosRequeridos(4);
-        
-        cargo2.setNombre("cargo 2");
-        cargo2.setSueldo(1000000);
-        cargo2.setCarreraOptima("Economia");
-        cargo2.añadirCarrerasAfines("Ingenieria");
-        cargo2.añadirCarrerasAfines("Estadistica");
-        cargo2.setExperienciaRequerida(8);
-        cargo2.setEstudiosRequeridos(3);
-
-
-        cargo3.setNombre("cargo 3");
-        cargo3.setSueldo(800000);
-        cargo3.setCarreraOptima("Estadistica");
-        cargo3.añadirCarrerasAfines("Economia");
-        cargo3.añadirCarrerasAfines("Psicologia");
-        cargo3.setExperienciaRequerida(8);
-        cargo3.setEstudiosRequeridos(1);
-
-        listaCargos.AñadirCargo(cargo1);
-        listaCargos.AñadirCargo(cargo2);
-        listaCargos.AñadirCargo(cargo3);
-        
-        uno.setARL("1020");
-        uno.setActivo(true);
-        uno.setApellido("CHAVES");
-        uno.setContactoDeEmergencia(305612321);
-        uno.setDireccion("Avenida calle 22#15-69");
-        uno.setEPS("SaludCoop");
-        uno.setEdad(21);
-        uno.setIdentificacion("1030685411");
-        uno.setNombre("ANDRES");
-        uno.setPensiones(900000);
-        uno.setHorasTrabajadas(1440);
-        uno.setCargo(cargo3);
-
-        dos.setARL("1030");
-        dos.setActivo(true);
-        dos.setApellido("CASTAÑEDA");
-        dos.setCesantias(24);
-        dos.setContactoDeEmergencia(306798545);
-        dos.setDireccion("AVENIDA LAS FERIAS#70-05");
-        dos.setEPS("SALUDTOTAL");
-        dos.setEdad(19);
-        dos.setIdentificacion("1019146963");
-        dos.setNombre("SEBASTIAN");
-        dos.setPensiones(900000);
-        dos.setCargo(cargo2);
-
-        tres.setARL("1040");
-        tres.setActivo(true);
-        tres.setApellido("CARO");
-        tres.setCesantias(25);
-        tres.setContactoDeEmergencia(10232131);
-        tres.setDireccion("AV.PRIMERADEMAYO#70-22");
-        tres.setEPS("VIVASALUD");
-        tres.setEdad(25);
-        tres.setIdentificacion("1013647467");
-        tres.setNombre("NICOLAS");
-        tres.setPensiones(1200000);
-        tres.setCargo(cargo1);
-
-        listaEmpleados.AñadirEmpleado(uno);
-        listaEmpleados.AñadirEmpleado(dos);
-        listaEmpleados.AñadirEmpleado(tres);
-
-    }
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SalarioB;

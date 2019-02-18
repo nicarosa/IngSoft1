@@ -27,8 +27,8 @@ public class CandidateEntity implements Serializable {
     private String profesion;
     private String universidad;
     private int experiencia;
-    private Double aptitud;
-    private Double salario_proyectado;
+    private Double aptitud =0.0;
+    private Double salario_proyectado=0.0;
     private CargoEntity cargoaspirado;
     private String nombre;
     private String apellido;

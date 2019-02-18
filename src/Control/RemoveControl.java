@@ -6,7 +6,6 @@
 package Control;
 
 import Entidad.EmployeeEntity;
-import Entidad.EmployeesList;
 import dao.EmpleadoDAO;
 
 /**
