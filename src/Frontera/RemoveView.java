@@ -9,6 +9,7 @@ import Control.CalculateSalaryControl;
 import Control.RemoveControl;
 import Entidad.EmployeeEntity;
 import Entidad.EmployeesList;
+import dao.EmpleadoDAO;
 import javax.swing.JOptionPane;
 import sun.reflect.generics.visitor.Reifier;
 
@@ -90,8 +91,10 @@ public class RemoveView extends javax.swing.JPanel {
 
         String RetirarId = buscarTF.getText();
         EmployeeEntity Retirado = new EmployeeEntity();
+        EmpleadoDAO dao = new EmpleadoDAO();
         double Salario = 0;
-        Retirado = PrincipalFrame.listaEmpleados.getEmpleado(RetirarId);
+        //Retirado = PrincipalFrame.listaEmpleados.getEmpleado(RetirarId);
+        Retirado = dao.obtener(RetirarId);
         if (Retirado == null) {
             JOptionPane.showMessageDialog(null, "No existe el empleado");
 

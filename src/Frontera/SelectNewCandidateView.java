@@ -5,7 +5,10 @@
  */
 package Frontera;
 
+import Control.SelectControl;
 import Entidad.CandidateEntity;
+import dao.CandidateDAO;
+import dao.CargoDAO;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +36,6 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         contactoTF = new javax.swing.JTextField();
         direccionTF = new javax.swing.JTextField();
@@ -73,6 +75,8 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
         CarreraCB = new javax.swing.JComboBox<>();
         UniversidadCB = new javax.swing.JComboBox<>();
         ExperienciaTF = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        CargoCB = new javax.swing.JComboBox<>();
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Item 2", "Item 3", "Item 4" }));
 
@@ -106,25 +110,10 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
 
         jTextField4.setText("jTextField4");
 
-        setLayout(new java.awt.GridBagLayout());
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Datos del Candidato");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 64, 0, 0);
-        add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("Cédula");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel2, gridBagConstraints);
 
         guardarB.setText("Guardar");
         guardarB.addActionListener(new java.awt.event.ActionListener() {
@@ -132,13 +121,6 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
                 guardarBActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.gridwidth = 13;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 16, 0, 0);
-        add(guardarB, gridBagConstraints);
 
         cancelarB.setText("Cancelar");
         cancelarB.addActionListener(new java.awt.event.ActionListener() {
@@ -146,156 +128,161 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
                 cancelarBActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 15;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 30, 0, 0);
-        add(cancelarB, gridBagConstraints);
 
         mensaje.setText("Candidato Guardado Satisfactoriamente");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.gridwidth = 18;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(13, 12, 7, 0);
-        add(mensaje, gridBagConstraints);
 
         idTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTFActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(idTF, gridBagConstraints);
 
         jLabel12.setText("Nombre");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel12, gridBagConstraints);
 
         jLabel13.setText("Apellido");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel13, gridBagConstraints);
 
         jLabel14.setText("Nivel de Estudios");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel14, gridBagConstraints);
 
         jLabel15.setText("Carrera");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel15, gridBagConstraints);
 
         jLabel16.setText("Universidad");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 64, 0, 0);
-        add(jLabel16, gridBagConstraints);
 
         jLabel17.setText("Experiencia (años)");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 64, 0, 0);
-        add(jLabel17, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(nombretf, gridBagConstraints);
 
         apellidoTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 apellidoTFActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(apellidoTF, gridBagConstraints);
 
         NivelDeEstudiosCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Bachiller", "Tecnico", "Profesional", "Maestria", "Doctorado" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 46;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(NivelDeEstudiosCB, gridBagConstraints);
 
         CarreraCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Psicologia", "Ingenieria", "Economia", "Estadistica", "Ninguna" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 46;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(CarreraCB, gridBagConstraints);
 
         UniversidadCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nacinal", "Andes", "Extrangera", "otras" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 46;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(26, 98, 0, 12);
-        add(UniversidadCB, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 13;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 133;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 98, 0, 12);
-        add(ExperienciaTF, gridBagConstraints);
+
+        jLabel18.setText("Cargo Deseado");
+
+        CargoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargo 1", "cargo 2", "cargo 3" }));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel2)
+                        .addGap(208, 208, 208)
+                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel12)
+                        .addGap(204, 204, 204)
+                        .addComponent(nombretf, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel13)
+                        .addGap(204, 204, 204)
+                        .addComponent(apellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel14)
+                        .addGap(160, 160, 160)
+                        .addComponent(NivelDeEstudiosCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel15)
+                        .addGap(204, 204, 204)
+                        .addComponent(CarreraCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel16)
+                        .addGap(185, 185, 185)
+                        .addComponent(UniversidadCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(mensaje))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(guardarB)
+                            .addComponent(jLabel1))
+                        .addGap(34, 34, 34)
+                        .addComponent(cancelarB))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addGap(152, 152, 152)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ExperienciaTF)
+                            .addComponent(CargoCB, 0, 139, Short.MAX_VALUE))))
+                .addGap(28, 28, 28))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel12))
+                    .addComponent(nombretf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel13))
+                    .addComponent(apellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel14))
+                    .addComponent(NivelDeEstudiosCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel15))
+                    .addComponent(CarreraCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel16))
+                    .addComponent(UniversidadCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel17))
+                    .addComponent(ExperienciaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(guardarB)
+                            .addComponent(cancelarB))
+                        .addGap(18, 18, 18)
+                        .addComponent(mensaje))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(CargoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
@@ -305,7 +292,12 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
             this.repaint();
         });
         mensaje.setVisible(true);
+        
+        SelectControl sc = new SelectControl();
         CandidateEntity candidato = new CandidateEntity();
+        CandidateDAO dao = new CandidateDAO();
+        CargoDAO cdao = new CargoDAO();
+        
         candidato.setIdentificacion(idTF.getText());
         candidato.setNombre(nombretf.getText());
         candidato.setApellido(apellidoTF.getText());
@@ -313,15 +305,13 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
         candidato.setUniversidad(UniversidadCB.getItemAt(UniversidadCB.getSelectedIndex()));
         candidato.setProfesion(CarreraCB.getItemAt(CarreraCB.getSelectedIndex()));
         candidato.setExperiencia(Integer.parseInt(ExperienciaTF.getText()));
-
-        //Hace falta hacer el método en el controlador que coloque esto, esto es por default
-        candidato.setAptitud(90.9);
+        candidato.setCargoaspirado(cdao.leer(CargoCB.getItemAt(CargoCB.getSelectedIndex())));
+        candidato.setAptitud(sc.CalcularAptitud(candidato));
         
-        //Este campo no está en la lista, toca añadirlo
-        candidato.setSalario_proyectado(1000.0);
-
-        PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
-        System.out.print(PrincipalFrame.listaCandidatos.getCandidato(idTF.getText()).toString());
+        
+        dao.crear(candidato);
+        //PrincipalFrame.listaCandidatos.AñadirCandidato(candidato);
+        //System.out.print(PrincipalFrame.listaCandidatos.getCandidato(idTF.getText()).toString());
 
 
     }//GEN-LAST:event_guardarBActionPerformed
@@ -341,6 +331,7 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CargoCB;
     private javax.swing.JComboBox<String> CarreraCB;
     private javax.swing.JTextField ExperienciaTF;
     private javax.swing.JComboBox<String> NivelDeEstudiosCB;
@@ -367,6 +358,7 @@ public class SelectNewCandidateView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -57,6 +57,10 @@ public class CargoEntity implements Serializable {
         this.carreraOptima = carreraOptima;
     }
 
+    public void setCarrerasAfines(ArrayList<String> carrerasAfines) {
+        this.carrerasAfines = carrerasAfines;
+    }
+
     public ArrayList<String> getCarrerasAfines() {
         return carrerasAfines;
     }

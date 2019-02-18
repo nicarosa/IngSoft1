@@ -5,8 +5,8 @@
  */
 package dao;
 
+import Entidad.CandidateEntity;
 import Entidad.CargoEntity;
-import Entidad.Usuario;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NonUniqueResultException;
@@ -17,13 +17,13 @@ import javax.persistence.Query;
  *
  * @author USUARIO
  */
-public class CargoDAO {
-    public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("RRhhPU");
+public class CandidateDAO {
+ public static EntityManagerFactory emf = Persistence.createEntityManagerFactory("RRhhPU");
     
-    public CargoDAO() {
+    public CandidateDAO() {
     }
 
-    public void crear(CargoEntity object) {
+    public void crear(CandidateEntity object) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try {
@@ -37,7 +37,7 @@ public class CargoDAO {
         }
     }
 
-    public boolean eliminar(CargoEntity object) {
+    public boolean eliminar(CandidateEntity object) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         boolean ret = false;
@@ -54,41 +54,46 @@ public class CargoDAO {
         }
     }
 
-    public CargoEntity leer(String nombre) {
+    public CandidateEntity leer(String identificacion) {
         EntityManager em = emf.createEntityManager();
-        CargoEntity cargo = null;
-        Query q = em.createQuery("SELECT u FROM CargoEntity u " +
-                "WHERE u.Nombre LIKE :Nombre" )
-                .setParameter("Nombre", nombre)
+        CandidateEntity candidato = null;
+        Query q = em.createQuery("SELECT u FROM CandidateEntity u " +
+                "WHERE u.identificacion LIKE :identificacion" )
+                .setParameter("identificacion", identificacion)
                 ;
         try{
-            cargo = (CargoEntity) q.getSingleResult();
+            candidato = (CandidateEntity) q.getSingleResult();
         }
         catch (NonUniqueResultException e){
-            cargo = (CargoEntity) q.getResultList().get(0);
+            candidato = (CandidateEntity) q.getResultList().get(0);
         }
         catch (Exception e){
             //e.printStackTrace();
         }
         finally{
             em.close();
-            return cargo;
+            return candidato;
         }
     }
     
-    public boolean actualizar(String nombre, CargoEntity nuevoObjeto){
+    public boolean actualizar(String nombre, CandidateEntity nuevoObjeto){
         EntityManager em = emf.createEntityManager();
-        CargoEntity object;
+        CandidateEntity object;
         em.getTransaction().begin();
         boolean ret = false;
         try{
             object = leer(nombre);
             object.setNombre(nuevoObjeto.getNombre());
-            object.setCarreraOptima(nuevoObjeto.getCarreraOptima());
-            object.setCarrerasAfines(nuevoObjeto.getCarrerasAfines());
-            object.setExperienciaRequerida(nuevoObjeto.getExperienciaRequerida());
-            object.setEstudiosRequeridos(nuevoObjeto.getEstudiosRequeridos());
-            object.setSueldo(nuevoObjeto.getSueldo());
+            object.setApellido(nuevoObjeto.getApellido());
+            object.setIdentificacion(nuevoObjeto.getIdentificacion());
+            object.setEdad(nuevoObjeto.getEdad());
+            object.setNivelDeEstudios(nuevoObjeto.getNivelDeEstudios());
+            object.setProfesion(nuevoObjeto.getProfesion());
+            object.setUniversidad(nuevoObjeto.getUniversidad());
+            object.setExperiencia(nuevoObjeto.getExperiencia());
+            object.setAptitud(nuevoObjeto.getAptitud());
+            object.setSalario_proyectado(nuevoObjeto.getSalario_proyectado());
+            object.setCargoaspirado(nuevoObjeto.getCargoaspirado());
             em.merge(object);
             em.getTransaction().commit();
             ret = true;
@@ -102,5 +107,5 @@ public class CargoDAO {
             return ret;
         }
     }
-
+   
 }

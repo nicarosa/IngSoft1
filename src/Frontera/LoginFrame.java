@@ -7,6 +7,7 @@ package Frontera;
 
 
 import Entidad.Usuario;
+import dao.EmpleadoDAO;
 
 import java.util.ArrayList;
 
@@ -109,6 +110,7 @@ public class LoginFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 n.setVisible(true);
             }
         });

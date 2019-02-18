@@ -5,6 +5,7 @@
     <class>Entidad.Usuario</class>
     <class>Entidad.CargoEntity</class>
     <class>Entidad.EmployeeEntity</class>
+    <class>Entidad.CandidateEntity</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/RRHHDataBase"/>
       <property name="javax.persistence.jdbc.user" value="admin1"/>

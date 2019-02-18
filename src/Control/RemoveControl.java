@@ -7,6 +7,7 @@ package Control;
 
 import Entidad.EmployeeEntity;
 import Entidad.EmployeesList;
+import dao.EmpleadoDAO;
 
 /**
  *
@@ -15,15 +16,17 @@ import Entidad.EmployeesList;
 public class RemoveControl {
 
     public double RemoveEmployee(EmployeeEntity aux) {
-
+        EmpleadoDAO dao = new EmpleadoDAO();
         double Monto = -1;
-        if(Frontera.PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion())==null){
+        if(dao.obtener(aux.getIdentificacion())==null){
            Monto = -2; 
         }
         else{
         if(aux.isActivo()){
         Monto = Liquidar(aux);
-        Frontera.PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).setActivo(false);
+        //Frontera.PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).setActivo(false);
+        aux.setActivo(false);
+        dao.actualizar(aux.getIdentificacion(), aux);
         }
         }
         return Monto;

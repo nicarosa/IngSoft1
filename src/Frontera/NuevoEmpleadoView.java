@@ -6,6 +6,8 @@
 package Frontera;
 
 import Entidad.EmployeeEntity;
+import dao.CargoDAO;
+import dao.EmpleadoDAO;
 import javax.swing.JPanel;
 
 /**
@@ -55,6 +57,8 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
         ARLTF = new javax.swing.JTextField();
         GuardarB = new javax.swing.JButton();
         CancelarB = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        CargoCB = new javax.swing.JComboBox<>();
 
         jLabel8.setText("jLabel8");
 
@@ -91,6 +95,10 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setText("Cargo");
+
+        CargoCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cargo 1", "cargo 2", "cargo 3" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,47 +108,50 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(216, 216, 216)
-                                .addComponent(CedulaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(212, 212, 212)
-                                .addComponent(NombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(212, 212, 212)
-                                .addComponent(ApellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(231, 231, 231)
-                                .addComponent(EPSTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(129, 129, 129)
-                                .addComponent(ContactoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(206, 206, 206)
-                                .addComponent(DireccionTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(28, 28, 28))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(ARL))
                         .addGap(225, 225, 225)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EdadTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ARLTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(GuardarB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CancelarB)
-                .addGap(36, 36, 36))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(GuardarB)
+                                .addGap(61, 61, 61)
+                                .addComponent(CancelarB))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(216, 216, 216)
+                                    .addComponent(CedulaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(212, 212, 212)
+                                    .addComponent(NombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(212, 212, 212)
+                                    .addComponent(ApellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(231, 231, 231)
+                                    .addComponent(EPSTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(129, 129, 129)
+                                    .addComponent(ContactoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel5))
+                                    .addGap(206, 206, 206)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(DireccionTF, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                        .addComponent(CargoCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,16 +204,22 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
                         .addGap(3, 3, 3)
                         .addComponent(jLabel10))
                     .addComponent(DireccionTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(CargoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarB)
                     .addComponent(CancelarB))
-                .addGap(37, 37, 37))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarBActionPerformed
         EmployeeEntity aux = new EmployeeEntity();
+        EmpleadoDAO dao = new EmpleadoDAO();
+        CargoDAO cdao = new CargoDAO();
         aux.setNombre(NombreTF.getText());
         aux.setIdentificacion(CedulaTF.getText());
         aux.setApellido(ApellidoTF.getText());
@@ -212,9 +229,9 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
         aux.setContactoDeEmergencia(Integer.parseInt(ContactoTF.getText()));
         aux.setDireccion(DireccionTF.getText());
         aux.setActivo(true);
-        
-        PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
-        
+        aux.setCargo(cdao.leer(CargoCB.getItemAt(CargoCB.getSelectedIndex())));
+        //PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
+        dao.crear(aux);
     }//GEN-LAST:event_GuardarBActionPerformed
 
     private void CancelarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarBActionPerformed
@@ -227,6 +244,7 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
     private javax.swing.JTextField ARLTF;
     private javax.swing.JTextField ApellidoTF;
     private javax.swing.JButton CancelarB;
+    private javax.swing.JComboBox<String> CargoCB;
     private javax.swing.JTextField CedulaTF;
     private javax.swing.JTextField ContactoTF;
     private javax.swing.JTextField DireccionTF;
@@ -239,6 +257,7 @@ public class NuevoEmpleadoView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

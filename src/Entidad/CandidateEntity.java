@@ -5,12 +5,24 @@
  */
 package Entidad;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  *
  * @author USUARIO
  */
-public class CandidateEntity {
-
+@Entity
+@Table(name="CandidateEntity")
+public class CandidateEntity implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nivelDeEstudios;
     private String profesion;
     private String universidad;
@@ -28,6 +40,15 @@ public class CandidateEntity {
     public String getNombre() {
         return nombre;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

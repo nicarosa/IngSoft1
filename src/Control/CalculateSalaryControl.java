@@ -7,6 +7,7 @@ package Control;
 
 import Entidad.EmployeeEntity;
 import Frontera.PrincipalFrame;
+import dao.EmpleadoDAO;
 
 /**
  *
@@ -17,7 +18,9 @@ public class CalculateSalaryControl {
     public double calcular(String id) {
         double sueldoFinal = 0;
         EmployeeEntity aux = new EmployeeEntity();
-        aux = PrincipalFrame.listaEmpleados.getEmpleado(id);
+        EmpleadoDAO dao = new EmpleadoDAO();
+        
+        aux = dao.obtener(id);
         if (aux.isActivo()) {
             double salarioBase = aux.getCargo().getSueldo();
             double sbMenosSalud = salarioBase - (0.08 * salarioBase);

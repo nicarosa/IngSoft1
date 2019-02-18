@@ -6,6 +6,7 @@
 package Frontera;
 
 import Entidad.EmployeeEntity;
+import dao.EmpleadoDAO;
 
 /**
  *
@@ -120,6 +121,7 @@ public class NoveltyView extends javax.swing.JPanel {
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
         EmployeeEntity aux = NoveltySearchView.getAux();
+        EmpleadoDAO dao = new EmpleadoDAO();
         switch (novedadesCB.getSelectedIndex()) {
             case 0:
                 aux.setHorasNocturnas(aux.getHorasNocturnas()
@@ -143,10 +145,11 @@ public class NoveltyView extends javax.swing.JPanel {
                         + Integer.parseInt(cantidadTF.getText()));
                 break;
         }
-        PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getIdentificacion());
+        /*PrincipalFrame.listaEmpleados.retirarEmpleado(aux.getIdentificacion());
         PrincipalFrame.listaEmpleados.AñadirEmpleado(aux);
         System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
-        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());
+        System.out.println(PrincipalFrame.listaEmpleados.getEmpleado(aux.getIdentificacion()).toString());*/
+        dao.actualizar(aux.getIdentificacion(), aux);        
         confirmLB.setVisible(true);
 
     }//GEN-LAST:event_aceptarBActionPerformed

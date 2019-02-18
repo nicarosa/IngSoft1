@@ -221,7 +221,7 @@ public class PrincipalFrame extends javax.swing.JFrame {
     private void contratacionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratacionBActionPerformed
         //Acá el constructor de la vista está modificado para propagar el panel principal a todos los nodos hijos. Esto podría ser fácilmente evitable
         //usando interfaces, sin embargo, Swing es una shit y no conozco muy bien su AST como para meterle mano
-        SelectView elegircargo = new SelectView(panelPrincipal);
+        SelectView2 elegircargo = new SelectView2(panelPrincipal);
         javax.swing.SwingUtilities.invokeLater(() -> {
             ActualizarGUI(panelPrincipal, elegircargo);
             paintButtonActive(contratacionB);
